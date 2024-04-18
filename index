@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>replit</title>
+    <!-- FONTE -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+
+    <!-- BOOTSTRAP -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="use-credentials">
+    <link href="style.css" rel="stylesheet" type="text/css" />
+
+    <!-- SCRIPTS -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="use-credentials"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="use-credentials"></script>
+    <!-- SCRIPTS DO FRONT AWESER -->
+    <script src="https://kit.fontawesome.com/bf7e05c402.js" crossorigin="use-credentials"></script>
+
+    <!-- PROGRESS BAR -->
+    <script src="progressbar.min.js"></script>
+    <!-- PARALAXXX -->
+    <script src="https://cdn.jsdelivr.net/parallax.js/1.4.2/parallax.min.js"></script>
+</head>
+
+<body>
+    <header>
+        <div class="container" id="nav-container">
+            <nav class="navbar-expand-lg fixed-top">
+                <a href="#" class="navbar-brand">
+                    <img id="logo" src="306277.svg" alt="306277">
+                    <span>APAM MT </span>
+                </a>
+                <button class="nav-toggler" type="button" data-bs-toggle="collapse" data-target="#navbar-links" aria-controls="navbar-links" aria-expanded="false" aria-label="toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-center" id="navbar-links">
+                    <div class="navbar-nav">
+                        <a class="home nav-item nav-link" id="home-menu">HOME</a>
+                        <a class="sobre nav-item nav-link" id="sobre-menu">SOBRE</a>
+                        <a class="adote nav-item nav-link" id="adote-menu">ADOTE</a>
+                        <a class="ajude nav-item nav-link" id="ajude-menu">AJUDE</a>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <div class="container-fluid">
+            <div id="mainSlider" class="carousel slide" data-ride="carousel">
+                <ol class="carousel-indicators">
+                    <li data-target="#mainSlider" data-slide-to="0" class="active"></li>
+                    <li data-target="#mainSlider" data-slide-to="1"></li>
+                    <li data-target="#mainSlider" data-slide-to="2"></li>
+                </ol>
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="3pessoas.png" class="d-block w-100" alt="Trabalho">
+                        <div class='carousel-caption d-none d-md-block'>
+                            <h2>Os Trabalhos Não PARAM!</h2>
+                              <p>Vem dar um Espiadinha</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script src="script.js"></script>
+</body>
+
+</html>
