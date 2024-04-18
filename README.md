@@ -17,3 +17,6 @@ Com gratidão,
 [Gabriel Bandeira]
 [Lider da Equipe desenvolvimento WEB]
 
+![WhatsApp Image 2024-04-12 at 17 57 22](https://github.com/GabrielBandeiraDev/APAM-MT/assets/148816822/a04f6602-e74e-4eed-8de2-6c3fba3b748e)
+
+
