@@ -1,11 +1,19 @@
 import { FC } from 'react';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import Header from "../Components/Header/Header.tsx";
+
+import BaseLayout from '../Components/BaseLayout/BaseLayout.tsx';
+import Home from '../pages/Home/Home.tsx';
 
 const router = createBrowserRouter([
     {
         path: '/',
-        element: (<Header />),
+        element: (<BaseLayout />),
+        children: [
+            {
+                path: '',
+                element: (<Home />)
+            }
+        ]
     }
 ]);
 
