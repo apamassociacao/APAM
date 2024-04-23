@@ -1,10 +1,11 @@
 import { FC } from 'react';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import Header from "../Components/Header/Header.tsx";
 
 const router = createBrowserRouter([
     {
         path: '/',
-        element: (<h1>Index</h1>),
+        element: (<Header />),
     }
 ]);
 
