@@ -1,0 +1,2 @@
+# @TODO quando houver eslint configuradinho, adicionar staging de lint durante commit
+npm run test

@@ -1,0 +1,23 @@
+@import "./assets/fontes";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #E0E0E0;
+}
+
+.application-container {
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+h1,
+span,
+a,
+p {
+  font-family: 'Roboto', sans-serif;
+}
