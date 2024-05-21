@@ -1,2 +1,2 @@
-# @TODO quando houver eslint configuradinho, adicionar staging de lint durante commit
-npm run test
+cd ./frontend && npm run lint:fix
+cd ./frontend && npm run test
