@@ -1,0 +1,60 @@
+.help-us {
+  background-color: #F47B6A;
+
+  &__container {
+    max-width: 1140px;
+    margin: 0 auto;
+    padding-top: 6.25rem;
+
+    &__body {
+      margin-top: 11.063rem;
+      display: flex;
+      align-items: center;
+      gap: 6.125rem;
+
+      &__left {
+        &__title {
+          font-size: 5.5rem;
+          color: #F2DFD7;
+          width: 518px;
+          line-height: 150%;
+        }
+
+        &__subtitle {
+          margin-top: 2.375rem;
+          color: #000;
+          font-size: 1.25rem;
+          width: 27.125rem;
+          line-height: 150%;
+        }
+
+        &__wrapper-button {
+          display: flex;
+          gap: 24px;
+          margin-top: 43px;
+
+          &__donate {
+            background-color: #E94250;
+          }
+
+          &__adopt {
+            background-color: #F0BE8A;
+          }
+        }
+      }
+
+      &__right {
+        &__img {
+          width: 624px;
+          height: 624px;
+          background-color: #F0BE8A;
+          border-radius: 50%;
+          background-image: url("../../../public/images/duda-dog.png");
+          background-repeat: no-repeat;
+          background-position: center;
+          background-size: contain;
+        }
+      }
+    }
+  }
+}
