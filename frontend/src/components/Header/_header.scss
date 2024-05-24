@@ -1,8 +1,7 @@
 .header {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  margin-top: 8.125rem;
+  gap: 9.375rem;
 
   &__nav {
     &__list {
@@ -11,14 +10,22 @@
       gap: 20px;
 
       a {
-        color: #031e7d;
-        font-size: 1.5rem;
+        color: #fff;
+        font-size: 1.125rem;
         text-decoration: none;
+        line-height: 150%;
+
+        &:hover {
+          color: #ED3E54;
+          text-decoration: underline #ED3E54;
+          text-underline-offset: 5px;
+        }
       }
 
       a.active {
-        text-decoration: underline #031e7d;
-        text-underline-offset: 10px;
+        color: #ED3E54;
+        text-decoration: underline #ED3E54;
+        text-underline-offset: 5px;
       }
     }
   }

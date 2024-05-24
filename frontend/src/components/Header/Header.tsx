@@ -1,9 +1,8 @@
 import { FC, HTMLAttributes } from 'react';
 import { NavLink } from 'react-router-dom';
 
-import logo from '/images/logo.png';
-
-import Logo from '@/components/Logo/Logo.tsx';
+import CompleteLogo from '@/components/icons/CompleteLogo.tsx';
+import Button from '@/components/Button/Button.tsx';
 
 export type HeaderProps = HTMLAttributes<HTMLHeadingElement>;
 
@@ -11,7 +10,7 @@ import './_header.scss';
 
 const Header: FC<HeaderProps> = ({ ...rest }) => (
   <header className="header" {...rest}>
-    <Logo src={logo} />
+    <CompleteLogo />
 
     <nav className="header__nav">
       <ul className="header__nav__list">
@@ -61,6 +60,8 @@ const Header: FC<HeaderProps> = ({ ...rest }) => (
         </li>
       </ul>
     </nav>
+
+    <Button>Doar</Button>
   </header>
 );
 
