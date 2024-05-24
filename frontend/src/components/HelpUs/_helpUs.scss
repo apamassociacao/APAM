@@ -25,6 +25,8 @@
           color: #F2DFD7;
           width: 518px;
           line-height: 150%;
+          font-family: "Fraunces", sans-serif;
+          font-weight: 900;
 
           @media screen and ($smartphone-size) {
             font-size: 2.75rem;
@@ -39,8 +41,10 @@
           font-size: 1.25rem;
           width: 27.125rem;
           line-height: 150%;
+          font-family: "Alexandria", sans-serif;
+          font-weight: 600;
 
-          @media screen and ($smartphone-size){
+          @media screen and ($smartphone-size) {
             font-size: 1.125rem;
             width: 342px;
             text-align: center;
@@ -77,8 +81,8 @@
           background-position: center;
           background-size: contain;
 
-          @media screen and ($smartphone-size){
-           background-size: 211px;
+          @media screen and ($smartphone-size) {
+            background-size: 211px;
             width: 342px;
             height: 358px;
           }
