@@ -1,7 +1,7 @@
 import { FC } from 'react';
 
 import logo from '/images/logo_footer.png';
-import Logo from '@/Components/Logo/Logo.tsx';
+import Logo from '@/components/Logo/Logo.tsx';
 
 import './_footer.scss';
 

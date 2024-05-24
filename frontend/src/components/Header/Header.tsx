@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 
 import logo from '/images/logo.png';
 
-import Logo from '@/Components/Logo/Logo.tsx';
+import Logo from '@/components/Logo/Logo.tsx';
 
 export type HeaderProps = HTMLAttributes<HTMLHeadingElement>;
 

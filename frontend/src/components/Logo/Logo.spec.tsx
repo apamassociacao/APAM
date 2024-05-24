@@ -1,5 +1,5 @@
 import { render } from '@testing-library/react';
-import Logo from '@/Components/Logo/Logo.tsx';
+import Logo from '@/components/Logo/Logo.tsx';
 
 describe('<Logo />', () => {
   test('Should render with correct props', () => {
