@@ -1,9 +1,41 @@
+@import '../../assets/variables';
+
 .header {
   display: flex;
   align-items: center;
   gap: 9.375rem;
 
+  @media screen and ($smartphone-size) {
+    gap: 242px;
+    justify-content: space-around;
+  }
+
+  &__burger-menu {
+    display: none;
+
+    @media screen and ($smartphone-size) {
+      display: block;
+    }
+  }
+
+  &__minimal-logo {
+    display: none;
+    @media screen and ($smartphone-size) {
+      display: block;
+    }
+  }
+
+  &__complete-logo {
+    @media screen and ($smartphone-size) {
+      display: none;
+    }
+  }
+
   &__nav {
+    @media screen and ($smartphone-size) {
+      display: none;
+    }
+
     &__list {
       list-style: none;
       display: flex;
@@ -27,6 +59,12 @@
         text-decoration: underline #ED3E54;
         text-underline-offset: 5px;
       }
+    }
+  }
+
+  &__donate-button {
+    @media screen and ($smartphone-size) {
+      display: none;
     }
   }
 }

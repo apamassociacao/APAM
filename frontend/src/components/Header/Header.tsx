@@ -2,7 +2,9 @@ import { FC, HTMLAttributes } from 'react';
 import { NavLink } from 'react-router-dom';
 
 import CompleteLogo from '@/components/icons/CompleteLogo.tsx';
+import MinimalLogo from '@/components/icons/MinimalLogo.tsx';
 import Button from '@/components/Button/Button.tsx';
+import BurgerMenu from '@/components/BurgerMenu/BurgerMenu.tsx';
 
 export type HeaderProps = HTMLAttributes<HTMLHeadingElement>;
 
@@ -10,7 +12,9 @@ import './_header.scss';
 
 const Header: FC<HeaderProps> = ({ ...rest }) => (
   <header className="header" {...rest}>
-    <CompleteLogo />
+    <CompleteLogo className="header__complete-logo" />
+    <MinimalLogo className="header__minimal-logo" />
+    <BurgerMenu className="header__burger-menu" />
 
     <nav className="header__nav">
       <ul className="header__nav__list">
@@ -61,7 +65,7 @@ const Header: FC<HeaderProps> = ({ ...rest }) => (
       </ul>
     </nav>
 
-    <Button>Doar</Button>
+    <Button className="header__donate-button">Doar</Button>
   </header>
 );
 

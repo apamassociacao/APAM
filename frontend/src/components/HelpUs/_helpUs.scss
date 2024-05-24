@@ -1,3 +1,5 @@
+@import '../../assets/variables';
+
 .help-us {
   background-color: #F47B6A;
 
@@ -12,12 +14,23 @@
       align-items: center;
       gap: 6.125rem;
 
+      @media screen and ($smartphone-size) {
+        flex-direction: column;
+        margin-top: 3rem
+      }
+
       &__left {
         &__title {
           font-size: 5.5rem;
           color: #F2DFD7;
           width: 518px;
           line-height: 150%;
+
+          @media screen and ($smartphone-size) {
+            font-size: 2.75rem;
+            width: 342px;
+            text-align: center;
+          }
         }
 
         &__subtitle {
@@ -26,12 +39,22 @@
           font-size: 1.25rem;
           width: 27.125rem;
           line-height: 150%;
+
+          @media screen and ($smartphone-size){
+            font-size: 1.125rem;
+            width: 342px;
+            text-align: center;
+          }
         }
 
         &__wrapper-button {
           display: flex;
           gap: 24px;
           margin-top: 43px;
+
+          @media screen and ($smartphone-size) {
+            justify-content: center;
+          }
 
           &__donate {
             background-color: #E94250;
@@ -53,6 +76,12 @@
           background-repeat: no-repeat;
           background-position: center;
           background-size: contain;
+
+          @media screen and ($smartphone-size){
+           background-size: 211px;
+            width: 342px;
+            height: 358px;
+          }
         }
       }
     }
