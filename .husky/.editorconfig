@@ -1,0 +1,11 @@
+[*]
+indent_style = space
+indent_size = 2
+
+# See: https://github.com/mvdan/sh/blob/master/cmd/shfmt/shfmt.1.scd
+shell_variant = posix
+binary_next_line = false
+switch_case_indent = true
+space_redirects = true
+keep_padding = true
+function_next_line = false

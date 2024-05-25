@@ -1,0 +1,11 @@
+shell=sh
+external-sources=true
+
+# Start looking for sources from this file's parent dir
+source-path=..
+
+# Don't complaing about lack of shebang
+disable=SC2148
+
+# Don't complain about cd possibly failing
+disable=SC2164
