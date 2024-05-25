@@ -1,0 +1,21 @@
+.sidebar {
+  position: fixed;
+  right: 0;
+  top: 0;
+  width: 271px;
+  height: 100%;
+  transition: all .3s;
+  background: gray;
+  z-index: 9999;
+  color: #fff;
+  font-size: 14px;
+  overflow: auto;
+
+  &.close {
+    transform: translate(271px);
+  }
+
+  &.open {
+    transform: translate(0);
+  }
+}
