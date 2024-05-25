@@ -6,7 +6,7 @@
   justify-content: space-between;
   padding: 0 20px;
 
-  @media screen and ($smartphone-size) {
+  @media screen and ($smartphone-and-tablet-size) {
     justify-content: space-around;
     gap: 20px;
     padding: 10px;
@@ -15,7 +15,7 @@
   &__burger-menu {
     display: none;
 
-    @media screen and ($smartphone-size) {
+    @media screen and ($smartphone-and-tablet-size) {
       display: block;
     }
   }
@@ -23,7 +23,7 @@
   &__minimal-logo {
     display: none;
 
-    @media screen and ($smartphone-size) {
+    @media screen and ($smartphone-and-tablet-size) {
       display: block;
     }
   }
@@ -31,7 +31,7 @@
   &__complete-logo {
     display: block;
 
-    @media screen and ($smartphone-size) {
+    @media screen and ($smartphone-and-tablet-size) {
       display: none;
     }
   }
@@ -40,7 +40,7 @@
     display: flex;
     gap: 20px;
 
-    @media screen and ($smartphone-size) {
+    @media screen and ($smartphone-and-tablet-size) {
       display: none;
     }
 
@@ -75,7 +75,7 @@
   &__donate-button {
     display: block;
 
-    @media screen and ($smartphone-size) {
+    @media screen and ($smartphone-and-tablet-size) {
       display: none;
     }
   }
