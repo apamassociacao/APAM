@@ -20,5 +20,26 @@
     max-width: 1140px;
     margin: 0 auto;
     padding-top: 6.25rem;
+
+    .nav-from-sidebar {
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      gap: 20px;
+      padding: 10px;
+
+      .nav__list {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+    }
+
+    .wrapper-button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 46px;
+    }
   }
 }
