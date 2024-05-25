@@ -1,2 +1,34 @@
-cd ./frontend && npm run lint:fix
-cd ./frontend && npm run test
+. "./.husky/lib/git-tools.sh"
+. "./.husky/lib/iter-tools.sh"
+. "./.husky/lib/path.sh"
+
+STAGED="$(git_status_get_staged_paths_absolute)"
+
+ANY_FRONTEND="$(is_any_path_relative_to "$(realpath ./frontend)" "$STAGED")"
+ANY_BACKEND="$(is_any_path_relative_to "$(realpath ./backend)" "$STAGED")"
+
+frontend_routine() {
+  cd ./frontend
+  npm run lint:fix
+  npm run test
+}
+
+backend_routine() {
+  return 0
+}
+
+if [ "$(count_true "$ANY_FRONTEND$ANY_BACKEND")" -gt 1 ]; then
+  echo "CommitError: Only one of the following directories must appear amongst staged files per commit."
+  echo "CommitError: ./frontend ./backend"
+  exit 1
+fi
+
+# shellcheck disable=SC2194
+case "true" in
+"$ANY_FRONTEND")
+  frontend_routine
+  ;;
+"$ANY_BACKEND")
+  backend_routine
+  ;;
+esac
