@@ -1,13 +1,16 @@
 import { render, screen } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
 import Header from './Header';
+import { SidebarProvider } from '@/hooks/SidebarProvider.tsx';
 
 describe('<Header />', () => {
   test('should render correctly', () => {
     render(
-      <MemoryRouter>
-        <Header />
-      </MemoryRouter>
+      <SidebarProvider>
+        <MemoryRouter>
+          <Header />
+        </MemoryRouter>
+      </SidebarProvider>
     );
 
     expect(screen.getByText('Home')).toBeInTheDocument();
@@ -15,13 +18,16 @@ describe('<Header />', () => {
     expect(screen.getByText('Adoção')).toBeInTheDocument();
     expect(screen.getByText('Contato')).toBeInTheDocument();
     expect(screen.getByText('Ajudar')).toBeInTheDocument();
+    expect(screen.getByText('Login')).toBeInTheDocument();
   });
 
   test('should have correct navigation links', () => {
     render(
-      <MemoryRouter>
-        <Header />
-      </MemoryRouter>
+      <SidebarProvider>
+        <MemoryRouter>
+          <Header />
+        </MemoryRouter>
+      </SidebarProvider>
     );
 
     expect(screen.getByText('Home')).toHaveAttribute('href', '/');
@@ -29,5 +35,6 @@ describe('<Header />', () => {
     expect(screen.getByText('Adoção')).toHaveAttribute('href', '/adocao');
     expect(screen.getByText('Contato')).toHaveAttribute('href', '/contato');
     expect(screen.getByText('Ajudar')).toHaveAttribute('href', '/ajudar');
+    expect(screen.getByText('Login')).toHaveAttribute('href', '/login');
   });
 });
