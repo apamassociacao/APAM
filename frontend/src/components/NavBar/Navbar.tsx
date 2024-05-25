@@ -3,8 +3,12 @@ import { NavLink } from 'react-router-dom';
 
 import './_navbar.scss';
 
-const Navbar: FC<HTMLAttributes<HTMLElement>> = () => (
-  <nav className="nav">
+export interface NavbarProps extends HTMLAttributes<HTMLDetailsElement> {
+  className?: string;
+}
+
+const Navbar: FC<NavbarProps> = ({ className, ...rest }) => (
+  <nav className={`nav ${className ? className : ''}`} {...rest}>
     <ul className="nav__list">
       <li className="nav__item">
         <NavLink
