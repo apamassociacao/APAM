@@ -54,6 +54,15 @@ const Navbar: FC<NavbarProps> = ({ className, ...rest }) => (
           Ajudar
         </NavLink>
       </li>
+
+      <li className="nav__item">
+        <NavLink
+          className={({ isActive }) => (isActive ? 'active' : '')}
+          to="/login"
+        >
+          Login
+        </NavLink>
+      </li>
     </ul>
   </nav>
 );
