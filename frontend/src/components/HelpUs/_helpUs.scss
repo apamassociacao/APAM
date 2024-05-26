@@ -86,11 +86,11 @@
           background-size: contain;
 
           @media screen and ($smartphone-and-tablet-size) {
-            background-size: 211px;
+            background-size: 222px;
             width: 342px;
             height: 358px;
           }
-          
+
           @media (min-width: 768px) and (max-width: 1370px) {
             width: 525px;
             height: 525px;
