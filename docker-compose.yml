@@ -2,10 +2,10 @@ services:
   backend:
     image: apam-backend:latest
     build:
-      dockefile: ./docker/backend.Dockerfile
+      dockerfile: ./docker/backend.Dockerfile
       target: dev
       tags:
-        - apam-backed:latest
+        - apam-backend:latest
       args:
         REPO: https://gitub.com/apamassociacao/APAM
         BRANCH: main
@@ -76,10 +76,10 @@ volumes:
 
 secrets:
   root-passwd:
-    file: ./db/secrets/root-passwd
+    file: ./docker/db/secrets/root-passwd
   default-db-name:
-    file: ./db/secrets/default-db-name
+    file: ./docker/db/secrets/default-db-name
   username:
-    file: ./db/secrets/username
+    file: ./docker/db/secrets/username
   passwd:
-    file: ./db/secrets/passwd
+    file: ./docker/db/secrets/passwd
