@@ -1,4 +1,26 @@
 services:
+  backend:
+    image: apam-backend:latest
+    build:
+      dockefile: ./docker/backend.Dockerfile
+      target: dev
+      tags:
+        - apam-backed:latest
+      args:
+        REPO: https://gitub.com/apamassociacao/APAM
+        BRANCH: main
+    init: true
+    hostname: apam-backend
+    pull_policy: never
+    privileged: true
+    mem_limit: 256MB
+    container_name: backend
+    restart: unless-stopped
+    platform: linux/amd64
+    links:
+      - standalone:testing_db
+      - persistent:testing_persistent_db
+
   persistent:
     image: mysql:5.6
     init: true

@@ -1,0 +1,8 @@
+# exclude
+backend/node_modules
+backend/dist
+backend/*.*
+
+# include
+!backend/*.js
+!backend/*.json
