@@ -12,7 +12,7 @@ services:
     init: true
     hostname: apam-backend
     pull_policy: never
-    privileged: true
+    privileged: false
     mem_limit: 256MB
     container_name: backend
     restart: unless-stopped

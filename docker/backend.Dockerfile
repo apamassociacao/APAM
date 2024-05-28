@@ -4,7 +4,7 @@ ARG REPO
 ARG BRANCH
 
 FROM node:20-alpine AS build-git
-RUN pkg add git
+RUN apk add git
 RUN git clone -b ${BRANCH} --depth 1 ${REPO} /build
 RUN cd /build/backend && npm install && npm run build:prod
 
