@@ -11,3 +11,7 @@ is_any_path_relative_to() {
   done
   printf "false"
 }
+
+relative_to_root() {
+  realpath -m -s --relative-to="$(realpath .)" "$1"
+}

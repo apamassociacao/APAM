@@ -1,11 +1,5 @@
-. "./.husky/lib/git-tools.sh"
-. "./.husky/lib/iter-tools.sh"
+. "./.husky/lib/staged.sh"
 . "./.husky/lib/path.sh"
-
-STAGED="$(git_status_get_staged_paths_absolute)"
-
-ANY_FRONTEND="$(is_any_path_relative_to "$(realpath ./frontend)" "$STAGED")"
-ANY_BACKEND="$(is_any_path_relative_to "$(realpath ./backend)" "$STAGED")"
 
 frontend_routine() {
   cd ./frontend
@@ -17,18 +11,15 @@ backend_routine() {
   return 0
 }
 
-if [ "$(count_true "$ANY_FRONTEND$ANY_BACKEND")" -gt 1 ]; then
+set_special_dirs ./frontend ./backend
+
+if [ "$(has_many_special_dirs_staged)" = "true" ]; then
   echo "CommitError: Only one of the following directories must appear amongst staged files per commit."
-  echo "CommitError: ./frontend ./backend"
+  echo "CommitError: $(printf '%s' "$SPECIAL_DIRS" | tr "\n" " ")"
   exit 1
 fi
 
-# shellcheck disable=SC2194
-case "true" in
-"$ANY_FRONTEND")
-  frontend_routine
-  ;;
-"$ANY_BACKEND")
-  backend_routine
-  ;;
+case "$(relative_to_root "$(get_special_dirs_staged)")" in
+frontend) frontend_routine ;;
+backend) backend_routine ;;
 esac
