@@ -4,6 +4,9 @@ external-sources=true
 # Start looking for sources from this file's parent dir
 source-path=..
 
+# Looking for sources in project root relative to `.husky/lib/`
+source-path=../..
+
 # Don't complaing about lack of shebang
 disable=SC2148
 
