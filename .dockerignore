@@ -1,8 +1,6 @@
-# exclude
-backend/node_modules
-backend/dist
-backend/*.*
-
-# include
-!backend/*.js
-!backend/*.json
+# Leading forward slashes "/" doesn't constrains pattern to directories
+**/node_modules
+**/.git
+/.*
+/*.md
+/docker*
