@@ -8,12 +8,46 @@
     max-width: 1140px;
     margin: 0 auto;
 
-    &__body {
+    &__imgs {
       display: flex;
+      justify-content: center;
+      margin-right: 7.5rem;
+
+      img {
+        height: 31.25rem;
+      }
+
+      img:nth-child(2) {
+        margin-top: -2.18rem;
+      }
+    }
+
+    &__body {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 7.5rem;
       justify-content: space-around;
       background-color: #f0be8a;
       border-radius: 20px;
-      padding: 100px;
+      padding: 6.25rem;
+      margin-top: -12.5rem;
+
+      h2 {
+        font-size: 3.42rem;
+        font-family: "Fraunces", sans-serif;
+        color: #244391;
+        padding-bottom: 3.2rem;
+      }
+
+      p {
+        font-size: 1.5rem;
+        font-family: "Alexandria", sans-serif;
+
+        span {
+          font-weight: 900;
+          color: #244391;
+        }
+      }
 
       &__left {
         display: flex;
