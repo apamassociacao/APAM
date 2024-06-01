@@ -1,0 +1,25 @@
+@import '../../assets/variables';
+
+.about-us {
+  background-color: #f2dfd7;
+  background-image: url("/images/bonebg.png");
+
+  &__container {
+    max-width: 1140px;
+    margin: 0 auto;
+
+    &__body {
+      display: flex;
+      justify-content: space-around;
+      background-color: #f0be8a;
+      border-radius: 20px;
+      padding: 100px;
+
+      &__left {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+      }
+    }
+  }
+}
