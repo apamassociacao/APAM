@@ -1,24 +1,69 @@
 @import '../../assets/variables';
 
+@mixin elementCard($font-bold, $background-color, $font-size: 20px) {
+  width: 100%;
+  height: 5.1rem;
+  text-transform: none;
+  font-size: $font-size;
+  font-weight: $font-bold;
+  font-family: "Alexandria", sans-serif;
+  border-radius: 1rem;
+  background-color: $background-color;
+
+  @media screen and ($smartphone-and-tablet-size) {
+    font-size: 12px;
+    height: 3.875rem;
+  }
+}
+
 .about-us {
   background-color: #f2dfd7;
   background-image: url("/images/bonebg.png");
+  background-repeat: none;
+  background-size: auto;
 
   &__container {
     max-width: 1140px;
     margin: 0 auto;
+    padding-bottom: 11.75rem;
 
     &__imgs {
       display: flex;
       justify-content: center;
       margin-right: 7.5rem;
 
+      @media screen and ($smartphone-and-tablet-size) {
+        margin-right: 2.5rem;
+      }
+
       img {
         height: 31.25rem;
+
+        @media screen and ($smartphone-and-tablet-size) {
+          height: 9rem;
+          width: calc(9rem + 3.9%);
+          margin-bottom: -3.6rem;
+        }
       }
 
       img:nth-child(2) {
         margin-top: -2.18rem;
+
+        @media screen and ($smartphone-and-tablet-size) {
+          margin-top: -0.625rem;
+          width: calc(9rem + 3.9%);
+        }
+      }
+
+      @media screen and (min-width: 920px) and (max-width: 1140px) {
+        img {
+          height: 25rem;
+          margin-bottom: 2.5rem;
+        }
+
+        img:nth-child(2) {
+          margin-top: -1.7rem;
+        }
       }
     }
 
@@ -26,22 +71,38 @@
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 7.5rem;
-      justify-content: space-around;
       background-color: #f0be8a;
       border-radius: 20px;
       padding: 6.25rem;
       margin-top: -12.5rem;
+
+      @media screen and ($smartphone-and-tablet-size) {
+        grid-template-columns: auto;
+        max-width: 342px;
+        padding: 62px 52px 62px 49px;
+        margin: 0 auto;
+        gap: 1.5rem;
+      }
 
       h2 {
         font-size: 3.42rem;
         font-family: "Fraunces", sans-serif;
         color: #244391;
         padding-bottom: 3.2rem;
+
+        @media screen and ($smartphone-and-tablet-size) {
+          font-size: 30px;
+          padding-bottom: 34px;
+        }
       }
 
       p {
         font-size: 1.5rem;
         font-family: "Alexandria", sans-serif;
+
+        @media screen and ($smartphone-and-tablet-size) {
+          font-size: 14px;
+        }
 
         span {
           font-weight: 900;
@@ -49,10 +110,52 @@
         }
       }
 
-      &__left {
+      &__button {
         display: flex;
         flex-direction: column;
-        flex-wrap: wrap;
+        gap: 12px;
+        margin-top: 30px;
+
+        a {
+          text-decoration: none;
+          color: #ffffff;
+        }
+
+        &__about {
+          @include elementCard(bold, #ED3E54);
+
+        }
+
+        &__contact {
+          @include elementCard(bold, #FF7665);
+        }
+
+        &-card {
+          @include elementCard(regular, #FDD8B1, 18px);
+          display: flex;
+          align-items: center;
+          gap: 9px;
+          color: #000000;
+          cursor: auto;
+          text-align: left;
+          padding: 1rem 1rem 1rem 1.75rem;
+
+          @media screen and ($smartphone-and-tablet-size) {
+            img {
+              width: 20px;
+            }
+          }
+        }
+      }
+
+      &__right {
+        p {
+          margin-bottom: 3.5rem;
+
+          @media screen and ($smartphone-and-tablet-size) {
+            margin-bottom: 2.5rem;
+          }
+        }
       }
     }
   }
