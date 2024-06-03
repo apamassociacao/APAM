@@ -1,0 +1,85 @@
+services:
+  backend:
+    image: apam-backend:latest
+    build:
+      dockerfile: ./docker/backend.Dockerfile
+      target: dev
+      tags:
+        - apam-backend:latest
+      args:
+        REPO: https://gitub.com/apamassociacao/APAM
+        BRANCH: main
+    init: true
+    hostname: apam-backend
+    pull_policy: never
+    privileged: false
+    mem_limit: 256MB
+    container_name: backend
+    restart: unless-stopped
+    platform: linux/amd64
+    links:
+      - standalone:testing_db
+      - persistent:testing_persistent_db
+
+  persistent:
+    image: mysql:5.6
+    init: true
+    hostname: apam-persistent-db
+    privileged: false
+    container_name: persistent-db
+    restart: unless-stopped
+    platform: linux/amd64
+    ports:
+      - 4040:3306
+    environment:
+      MYSQL_ROOT_PASSWORD_FILE: /run/secrets/root-passwd
+      MYSQL_DATABASE_FILE: /run/secrets/default-db-name
+      MYSQL_USER_FILE: /run/secrets/username
+      MYSQL_PASSWORD_FILE: /run/secrets/passwd
+    volumes:
+      - db-data:/var/lib/mysql:rw
+    secrets:
+      - root-passwd
+      - default-db-name
+      - username
+      - passwd
+
+  standalone:
+    image: mysql:5.6
+    init: true
+    hostname: apam-db
+    privileged: false
+    container_name: db
+    restart: unless-stopped
+    platform: linux/amd64
+    ports:
+      - 3030:3306
+    environment:
+      MYSQL_ROOT_PASSWORD_FILE: /run/secrets/root-passwd
+      MYSQL_DATABASE_FILE: /run/secrets/default-db-name
+      MYSQL_USER_FILE: /run/secrets/username
+      MYSQL_PASSWORD_FILE: /run/secrets/passwd
+    secrets:
+      - root-passwd
+      - default-db-name
+      - username
+      - passwd
+
+volumes:
+  db-data:
+    # Assumes linux system like WSL2 or VM
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: ~/apam-db-testing-data
+
+secrets:
+  root-passwd:
+    file: ./docker/db/secrets/root-passwd
+  default-db-name:
+    file: ./docker/db/secrets/default-db-name
+  username:
+    file: ./docker/db/secrets/username
+  passwd:
+    file: ./docker/db/secrets/passwd

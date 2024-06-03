@@ -1,0 +1,6 @@
+# Leading forward slashes "/" doesn't constrains pattern to directories
+**/node_modules
+**/.git
+/.*
+/*.md
+/docker*
