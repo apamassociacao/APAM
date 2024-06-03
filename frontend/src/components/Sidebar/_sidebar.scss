@@ -1,0 +1,45 @@
+.sidebar {
+  position: fixed;
+  right: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  transition: all .3s;
+  background: gray;
+  z-index: 9999;
+  color: #fff;
+  font-size: 14px;
+  overflow: auto;
+
+  &.close {
+    transform: translate(3000px);
+  }
+
+  &.open {
+    transform: translate(0);
+    max-width: 1140px;
+    margin: 0 auto;
+    padding-top: 6.25rem;
+
+    .nav-from-sidebar {
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      gap: 20px;
+      padding: 10px;
+
+      .nav__list {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+    }
+
+    .wrapper-button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 46px;
+    }
+  }
+}
