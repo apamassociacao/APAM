@@ -1,2 +1,25 @@
-cd ./frontend && npm run lint:fix
-cd ./frontend && npm run test
+. "./.husky/lib/staged.sh"
+. "./.husky/lib/path.sh"
+
+frontend_routine() {
+  cd ./frontend
+  npm run lint:fix
+  npm run test
+}
+
+backend_routine() {
+  return 0
+}
+
+set_special_dirs ./frontend ./backend
+
+if [ "$(has_many_special_dirs_staged)" = "true" ]; then
+  echo "CommitError: Only one of the following directories must appear amongst staged files per commit."
+  echo "CommitError: $(printf '%s' "$SPECIAL_DIRS" | tr "\n" " ")"
+  exit 1
+fi
+
+case "$(relative_to_root "$(get_special_dirs_staged)")" in
+frontend) frontend_routine ;;
+backend) backend_routine ;;
+esac
