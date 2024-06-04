@@ -5,8 +5,10 @@ const AboutUs: React.FC = () => (
   <section className="about-us">
     <div className="about-us__container">
       <div className="about-us__container__imgs">
-        <img src="/images/dog1.png" alt="Cachorro com lingua pra fora" />
-        <img src="/images/cat1.png" alt="Gato dourado deitado" />
+        <div className="about-us__container__imgs-container">
+          <img src="/images/dog1.png" alt="Cachorro com lingua pra fora" />
+          <img src="/images/cat1.png" alt="Gato dourado deitado" />
+        </div>
       </div>
       <div className="about-us__container__body">
         <div className="about-us__container__body__left">

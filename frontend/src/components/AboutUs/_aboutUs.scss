@@ -30,10 +30,17 @@
     &__imgs {
       display: flex;
       justify-content: center;
+    }
+
+    &__imgs-container {
+      display: flex;
+      justify-content: center;
       margin-right: 7.5rem;
+      margin-top: -100px;
 
       @media screen and ($smartphone-and-tablet-size) {
         margin-right: 2.5rem;
+        margin-top: -40px;
       }
 
       img {
