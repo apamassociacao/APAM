@@ -130,6 +130,12 @@
           gap: 12px;
           text-decoration: none;
           color: #ffffff;
+
+          @media screen and ($smartphone-and-tablet-size) {
+            img {
+              width: 20px;
+            }
+          }
         }
 
         &__about {
