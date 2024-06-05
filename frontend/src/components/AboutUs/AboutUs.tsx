@@ -24,13 +24,21 @@ const AboutUs: React.FC = () => (
           </p>
           <div className="about-us__container__body__button">
             <Button className="about-us__container__body__button__about">
-              <a href="#" target="_blank">
+              <a
+                href="https://www.instagram.com/apammt?igsh=a2lyNjRwdXNkOHg3"
+                target="_blank"
+                rel="noreferrer"
+              >
                 <img src={IconInsta} alt="Ícone instagram" />
                 Conheça nosso instagram
               </a>
             </Button>
             <Button className="about-us__container__body__button__contact">
-              <a href="#" target="_blank">
+              <a
+                href="mailto:apammt@gmail.com"
+                target="_blank"
+                rel="noreferrer"
+              >
                 <img src={IconEmail} alt="Ícone Email" />
                 Contate-nos no email
               </a>
