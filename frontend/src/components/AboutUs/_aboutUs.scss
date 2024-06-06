@@ -1,19 +1,9 @@
 @import '../../assets/variables';
 
-@mixin elementCard($font-bold, $background-color, $font-size: 20px) {
-  width: 100%;
-  height: 5.1rem;
-  text-transform: none;
+@mixin elementCard($font-bold, $background-color, $font-size: 1.25rem) {
   font-size: $font-size;
   font-weight: $font-bold;
-  font-family: "Alexandria", sans-serif;
-  border-radius: 1rem;
   background-color: $background-color;
-
-  @media screen and ($smartphone-and-tablet-size) {
-    font-size: 12px;
-    height: 3.875rem;
-  }
 }
 
 .about-us {
@@ -98,7 +88,7 @@
         padding-bottom: 3.2rem;
 
         @media screen and ($smartphone-and-tablet-size) {
-          font-size: 30px;
+          font-size: 2rem;
           padding-bottom: 34px;
         }
       }
@@ -108,7 +98,7 @@
         font-family: "Alexandria", sans-serif;
 
         @media screen and ($smartphone-and-tablet-size) {
-          font-size: 14px;
+          font-size: 0.9rem;
         }
 
         span {
@@ -125,7 +115,6 @@
 
         a {
           display: flex;
-          justify-content: center;
           align-items: center;
           gap: 12px;
           text-decoration: none;
@@ -138,6 +127,10 @@
           }
         }
 
+        &__about, &__contact {
+          justify-content: center;
+        }
+
         &__about {
           @include elementCard(bold, #ED3E54);
 
@@ -148,9 +141,7 @@
         }
 
         &-card {
-          @include elementCard(regular, #FDD8B1, 18px);
-          display: flex;
-          align-items: center;
+          @include elementCard(regular, #FDD8B1, 1.1rem);
           gap: 9px;
           color: #000000;
           cursor: auto;
