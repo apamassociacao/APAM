@@ -38,7 +38,7 @@
 
         @media screen and ($smartphone-and-tablet-size) {
           height: 9rem;
-          width: calc(9rem + 3.9%);
+          width: $width-img;
           margin-bottom: -3.6rem;
         }
       }
@@ -48,7 +48,7 @@
 
         @media screen and ($smartphone-and-tablet-size) {
           margin-top: -0.625rem;
-          width: calc(9rem + 3.9%);
+          width: $width-img;
         }
       }
 
