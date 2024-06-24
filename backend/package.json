@@ -7,7 +7,7 @@
     "node": ">=20 <21"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "devDependencies": {
     "@eslint/js": "9.5.0",
