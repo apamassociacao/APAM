@@ -1,0 +1,11 @@
+{
+  "extends": "./dev.tsconfig.json",
+  "compilerOptions": {
+    /* Emit */
+    "declaration": false,
+    "declarationMap": false,
+    "emitDeclarationOnly": false,
+    "sourceMap": false,
+    "inlineSourceMap": false
+  }
+}
