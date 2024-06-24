@@ -3,10 +3,10 @@
   "version": "1.0.0",
   "description": "APAM API",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "build": "tsc -p tsconfig.json",
     "dev": "tsx watch src/server.ts",
-    "knex": "node --import tsx ./node_modules/.bin/knex",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -16,19 +16,12 @@
   },
   "license": "ISC",
   "dependencies": {
-    "dotenv": "^16.4.5",
     "fastify": "^4.27.0",
-    "knex": "^3.1.0",
-    "mysql": "^2.18.1",
     "pino-pretty": "^11.2.0",
     "tsx": "^4.15.2"
   },
   "devDependencies": {
-    "@types/node": "^20.14.3",
-    "@typescript-eslint/eslint-plugin": "^7.13.1",
-    "@typescript-eslint/parser": "^7.13.1",
-    "eslint": "^8.57.0",
-    "typescript": "^5.4.5",
-    "typescript-eslint": "^7.13.1"
+    "@types/node": "^20.14.2",
+    "typescript": "^5.4.5"
   }
 }
