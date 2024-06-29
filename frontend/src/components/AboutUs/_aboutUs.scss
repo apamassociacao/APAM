@@ -1,0 +1,170 @@
+@import '../../assets/variables';
+
+@mixin elementCard($font-bold, $background-color, $font-size: 1.25rem) {
+  font-size: $font-size;
+  font-weight: $font-bold;
+  background-color: $background-color;
+}
+
+.about-us {
+  background-color: #f2dfd7;
+  background-image: url("/images/bonebg.png");
+  background-repeat: none;
+  background-size: auto;
+
+  &__container {
+    max-width: 1140px;
+    margin: 0 auto;
+    padding-bottom: 11.75rem;
+
+    &__imgs {
+      display: flex;
+      justify-content: center;
+    }
+
+    &__imgs-container {
+      display: flex;
+      justify-content: center;
+      margin-right: 7.5rem;
+      margin-top: -100px;
+
+      @media screen and ($smartphone-and-tablet-size) {
+        margin-right: 2.5rem;
+        margin-top: -40px;
+      }
+
+      img {
+        height: 31.25rem;
+
+        @media screen and ($smartphone-and-tablet-size) {
+          height: 9rem;
+          width: $width-img;
+          margin-bottom: -3.6rem;
+        }
+      }
+
+      img:nth-child(2) {
+        margin-top: -2.18rem;
+
+        @media screen and ($smartphone-and-tablet-size) {
+          margin-top: -0.625rem;
+          width: $width-img;
+        }
+      }
+
+      @media screen and (min-width: 920px) and (max-width: 1140px) {
+        img {
+          height: 25rem;
+          margin-bottom: 2.5rem;
+        }
+
+        img:nth-child(2) {
+          margin-top: -1.7rem;
+        }
+      }
+    }
+
+    &__body {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 7.5rem;
+      background-color: #f0be8a;
+      border-radius: 20px;
+      padding: 6.25rem;
+      margin-top: -12.5rem;
+
+      @media screen and ($smartphone-and-tablet-size) {
+        grid-template-columns: auto;
+        max-width: 342px;
+        padding: 62px 52px 62px 49px;
+        margin: 0 auto;
+        gap: 1.5rem;
+      }
+
+      h2 {
+        font-size: 3.42rem;
+        font-family: "Fraunces", sans-serif;
+        color: #244391;
+        padding-bottom: 3.2rem;
+
+        @media screen and ($smartphone-and-tablet-size) {
+          font-size: 2rem;
+          padding-bottom: 34px;
+        }
+      }
+
+      p {
+        font-size: 1.5rem;
+        font-family: "Alexandria", sans-serif;
+
+        @media screen and ($smartphone-and-tablet-size) {
+          font-size: 0.9rem;
+        }
+
+        span {
+          font-weight: 900;
+          color: #244391;
+        }
+      }
+
+      &__button {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        margin-top: 30px;
+
+        a {
+          display: flex;
+          align-items: center;
+          gap: 12px;
+          text-decoration: none;
+          color: #ffffff;
+
+          @media screen and ($smartphone-and-tablet-size) {
+            img {
+              width: 20px;
+            }
+          }
+        }
+
+        &__about, &__contact {
+          justify-content: center;
+        }
+
+        &__about {
+          @include elementCard(bold, #ED3E54);
+
+        }
+
+        &__contact {
+          @include elementCard(bold, #FF7665);
+        }
+
+        &-card {
+          @include elementCard(regular, #FDD8B1, 1.1rem);
+          gap: 9px;
+          color: #000000;
+          cursor: auto;
+          text-align: left;
+          padding: 1rem 1rem 1rem 1.75rem;
+
+          @media screen and ($smartphone-and-tablet-size) {
+            img {
+              width: 20px;
+            }
+          }
+        }
+      }
+
+      &__right {
+        p {
+          margin-bottom: 3.5rem;
+
+          @media screen and ($smartphone-and-tablet-size) {
+            margin-bottom: 2.5rem;
+          }
+        }
+      }
+    }
+  }
+}

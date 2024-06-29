@@ -1,0 +1,16 @@
+@import '../../assets/variables';
+
+.card-container {
+  width: 100%;
+  height: 5.1rem;
+  text-transform: none;
+  font-family: 'Alexandria', sans-serif;
+  border-radius: 1rem;
+  display: flex;
+  align-items: center;
+
+  @media screen and ($smartphone-and-tablet-size) {
+    font-size: 12px;
+    height: 3.875rem;
+  }
+}
