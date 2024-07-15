@@ -1,0 +1,65 @@
+@import '../../assets/variables';
+
+
+.adocao {
+    background-color: #FF7665;
+    height: 5000px;
+
+    &__container {
+        max-width: 1140px;
+        margin: 0 auto;
+        padding-top: 6.25rem;
+
+        &__body {
+            margin-top: 11.063rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 4rem;
+            flex-wrap: wrap;
+            align-content: flex-start;
+            align-items: flex-start;
+
+            @media screen and (max-width: 1156px) {
+                flex-direction: column;
+            }
+
+            @media screen and ($smartphone-and-tablet-size) {
+                flex-direction: column;
+                margin-top: 3rem
+            }
+
+            &__title {
+                font-size: 3.45rem;
+                color: #F0BE8A;
+                width: 518px;
+                line-height: 150%;
+                font-family: "Fraunces", sans-serif;
+                font-weight: 900;
+                width: 1000px;
+
+
+                @media screen and ($smartphone-and-tablet-size) {
+                    font-size: 2.75rem;
+                    width: 342px;
+                    text-align: center;
+                }
+
+                &__subtitle {
+
+                    color: #F0BE8A;
+                    font-size: 1.88rem;
+                    width: 27.125rem;
+                    line-height: 150%;
+                    font-family: "Alexandria", sans-serif;
+                    font-weight: 600;
+                    display: flex;
+                    gap: 2rem;
+
+
+                }
+            }
+
+        }
+    }
+}
