@@ -1,0 +1,13 @@
+@use '../../../../pages/Admin/colors' as color;
+
+.admin-input__title {
+  font-size: 1.1rem;
+  padding-bottom: 0.5rem;
+  letter-spacing: 0.5px;
+  font-weight: 500;
+}
+
+.admin-input__title-star {
+  margin-left: 0.2rem;
+  color: color.$warning;
+}

@@ -1,0 +1,149 @@
+@use '../../pages/Admin/colors' as color;
+@use '../../assets/fontes' as font;
+@use 'sass:math';
+@import '../../assets/variables';
+
+@include font.inter;
+
+$vertical: 1rem;
+$horizontal: 1.5rem;
+
+:root {
+  --logo-height: 60px;
+  --header-height: calc(var(--logo-height) + #{$vertical} * 2);
+}
+
+@media ($smartphone-and-tablet-size) {
+  :root {
+    --logo-height: 50px;
+  }
+}
+
+.admin-header {
+  background-color: color.$secondary;
+  width: 100%;
+  padding: $vertical $horizontal $vertical $horizontal;
+  display: flex;
+  flex-direction: row;
+
+  * {
+    font-family: 'Inter', sans-serif;
+    color: color.$primary;
+  }
+
+  &__logo {
+    margin-right: $horizontal;
+    height: var(--logo-height);
+    display: block;
+
+    @media ($smartphone-and-tablet-size) {
+      width: auto;
+    }
+  }
+
+  &__nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: center;
+    width: 100%;
+
+    @media ($smartphone-and-tablet-size) {
+      display: none;
+    }
+  }
+
+  &__burger-menu {
+    display: none;
+
+    @media ($smartphone-and-tablet-size) {
+      display: initial;
+      margin-left: auto;
+    }
+  }
+
+  &__logo-container {
+    @media ($smartphone-and-tablet-size) {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      width: 100%;
+    }
+  }
+
+  &__btn {
+    padding: 0 0.8rem;
+    height: 100%;
+    background-color: unset;
+    border: unset;
+    font-weight: bold;
+    font-size: medium;
+    letter-spacing: 0.5px;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  &__btn-end-align {
+    margin-left: auto;
+
+    & ~ & {
+      // Hack to emulate :first-child
+      margin: 0;
+    }
+  }
+}
+
+.admin-header-sidebar {
+  display: none;
+
+  @media ($smartphone-and-tablet-size) {
+    // Burger Menu doesn't exist in desktop mode.
+    // This prevents a page soft-lock if resolution changes with sidebar active.
+    display: flex;
+  }
+
+  position: fixed;
+  top: 0;
+  left: 100%;
+  transition: left 0.5s ease;
+  height: 100%;
+  z-index: math.$max-safe-integer;
+  flex-direction: column;
+
+  &.open {
+    left: 0;
+  }
+
+  .admin-header {
+    &__logo-container {
+      height: fit-content;
+      margin-bottom: $vertical;
+    }
+
+    &__nav {
+      display: initial;
+      display: flex;
+      height: 100%;
+      flex-direction: column;
+      justify-content: start;
+      align-items: start;
+    }
+
+    &__btn {
+      padding: $vertical 0;
+      height: auto;
+    }
+
+    &__btn-end-align {
+      margin-left: unset;
+      margin-top: auto;
+
+      & ~ & {
+        // Hack to emulate :first-child of :first-of-type
+        margin-top: unset;
+      }
+    }
+  }
+}

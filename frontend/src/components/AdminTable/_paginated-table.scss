@@ -1,0 +1,152 @@
+@use '../../pages/Admin/colors' as color;
+
+$active-page-circle-diameter: 5px;
+$jump-button-spacing: 0.5rem;
+
+.paginated-table {
+  .table-cell,
+  .table-header-cell {
+    padding: 0.5rem;
+    letter-spacing: 0.5px;
+  }
+
+  .table-cell {
+    color: color.$text;
+  }
+
+  .table-header-cell {
+    font-weight: bold;
+    color: color.$secondary;
+  }
+}
+
+.table-result-counter {
+  display: inline-block;
+  padding: 0.2rem;
+
+  .text {
+    font-weight: normal;
+    font-size: 0.9rem;
+    color: color.$secondary;
+    line-height: 1;
+  }
+
+  .number {
+    font-weight: bold;
+  }
+}
+
+.page-selector {
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  height: 2rem;
+
+  .jump-button,
+  .page-button {
+    height: inherit;
+    line-height: 1;
+    border: none;
+    background-color: transparent;
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    &[disabled] {
+      color: color.$subtle;
+      cursor: initial;
+    }
+  }
+
+  .page-button-container {
+    height: inherit;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .page-button {
+    padding: 0 0.3rem;
+    position: relative;
+    transition: all 0.1s ease;
+
+    &:hover {
+      font-size: 1.2rem;
+      padding: 0 0.5rem;
+    }
+
+    &.active {
+      font-weight: bold;
+
+      &::after {
+        // circle indicator
+        content: '';
+        transition: inherit;
+        background-color: color.$secondary;
+        width: $active-page-circle-diameter;
+        height: $active-page-circle-diameter;
+        position: absolute;
+        border-radius: 50%;
+        bottom: 5%;
+        left: 51%;
+        transform: translateX(-50%);
+      }
+
+      &:hover::after {
+        width: 50%;
+        border-radius: calc($active-page-circle-diameter / 2);
+      }
+    }
+  }
+
+  .jump-button {
+    font-family: monospace;
+    font-weight: bold;
+    font-size: 1.1rem;
+    padding: 0 $jump-button-spacing;
+    transition: all 0.2s ease;
+    position: relative;
+    overflow-x: hidden;
+
+    &:not([disabled]) {
+      &::after {
+        // bullet-like crossing animation
+        content: '';
+        background-color: color.$secondary;
+        width: 100%;
+        height: $active-page-circle-diameter;
+        position: absolute;
+        border-radius: calc($active-page-circle-diameter / 2);
+        bottom: 5%;
+      }
+
+      &:hover::after {
+        // set properties to initial values without reverse animation
+        transition: inherit;
+      }
+
+      &.previous,
+      &.to-first {
+        &::after {
+          right: -100%;
+        }
+
+        &:hover::after {
+          right: 100%;
+        }
+      }
+
+      &.next,
+      &.to-last {
+        &::after {
+          left: -100%;
+        }
+
+        &:hover::after {
+          left: 100%;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,37 @@
+@use '../../../../pages/Admin/colors' as color;
+
+@import './options';
+
+.admin-input {
+  &__simple-text-box,
+  &__long-text-box {
+    width: 100%;
+    padding: 0.5rem;
+    border-radius: 5px;
+    border: 1px solid color.$border;
+    color: color.$text;
+
+    &::placeholder {
+      color: color.$subtle;
+      font-weight: 500;
+    }
+
+    &:focus,
+    &:focus-visible {
+      border-color: color.$secondary;
+      border-width: 2px;
+      outline: none;
+    }
+  }
+
+  &__simple-text-box {
+    text-overflow: ellipsis;
+  }
+
+  &__long-text-box {
+    resize: vertical;
+    min-height: 6rem;
+    overflow-wrap: break-word;
+    overflow: auto;
+  }
+}

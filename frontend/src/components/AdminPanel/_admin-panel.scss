@@ -1,0 +1,141 @@
+@use '../../pages/Admin/colors' as color;
+@use '../../assets/fontes' as font;
+
+@import '../../assets/variables';
+@import './options';
+
+@include font.inter;
+
+:root {
+  --top-margin: calc(#{$base-margin} * 3);
+  --bottom-margin: calc(#{$base-margin} * 1.5);
+
+  // Remaining space resulting of subtracting header height and current vertical
+  // margins from current viewport size.
+  // If vertical margins are 50px total, header height is 50px, and viewport size
+  // is 400px, the *minimum* available space for forms is 400px - 50px - 50px,
+  // same as 300px.
+  // This is necessary because forcing 100% height relative to 100vh on a block
+  // element that is empty results in the innermost children not affecting said
+  // element's height when content size inevitably grows past it.
+  // Scrolling the parent element of an arbitrarily sized container is, of course,
+  // a design choice.
+  --useful-form-space: calc(
+    100vh - var(--header-height) - var(--top-margin) - var(--bottom-margin)
+  );
+}
+
+@media ($smartphone-and-tablet-size) {
+  :root {
+    --top-margin: calc(#{$base-margin} * 1.5);
+    --bottom-margin: #{$min-margin};
+  }
+}
+
+.admin-panel {
+  background-color: color.$primary;
+
+  * {
+    font-family: 'Inter', sans-serif;
+    color: color.$secondary;
+  }
+
+  &__working-area {
+    min-height: 100%;
+    margin: var(--top-margin) $base-margin var(--bottom-margin) $base-margin;
+
+    @media ($smartphone-and-tablet-size) {
+      margin-left: $min-margin;
+      margin-right: $min-margin;
+    }
+  }
+
+  &__content-frame {
+    min-height: var(--useful-form-space);
+    overflow-x: auto;
+    border: solid 2px color.$secondary;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-bottom: 0.5rem;
+    padding-top: calc(#{$edge-button-height} / 2 + 0.5rem);
+    display: flex;
+  }
+
+  &__page-title {
+    margin-bottom: 1rem;
+    margin-left: 1.5rem;
+    font-size: 2rem;
+    font-weight: bold;
+
+    @media ($smartphone-and-tablet-size) {
+      margin-bottom: 1rem;
+      margin-left: 1rem;
+      font-size: 1.5rem;
+    }
+  }
+
+  &__banner {
+    background-color: color.$secondary;
+    margin-top: $banner-top-margin;
+    margin-bottom: $banner-offset-bottom;
+    margin-right: calc($base-margin * 3);
+    padding: 0.5rem 1rem;
+    border-radius: 0 10px 10px 0;
+    max-width: $max-banner-width;
+
+    @media ($smartphone-and-tablet-size) {
+      margin-right: $base-margin;
+    }
+  }
+
+  &__banner-text {
+    color: color.$primary;
+    font-weight: bold;
+    font-size: 1.2rem;
+  }
+
+  &__edge-btn-container {
+    // Negative margin is more predictable than
+    // positive 'top' property with relative position
+    margin-bottom: calc($edge-button-height / 2 * -1);
+
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    padding-right: $edge-button-margin-between;
+  }
+
+  &__edge-btn {
+    min-width: 150px;
+    max-width: 300px;
+    padding: 0 1rem;
+    transition:
+      margin 0.1s ease,
+      padding 0.1s ease;
+    height: $edge-button-height;
+    overflow-x: visible;
+    overflow-y: hidden;
+    font-weight: bold;
+    font-size: 1rem;
+    letter-spacing: $edge-button-letter-spacing;
+    margin-left: $edge-button-margin-between;
+    border-radius: 0.5rem;
+    border: solid 2px color.$secondary;
+    background-color: color.$primary;
+
+    &:hover {
+      border-color: color.$secondary;
+      background-color: color.$secondary;
+      color: color.$primary;
+      cursor: pointer;
+
+      // Dealing with margins not collapsing
+      margin-right: calc($edge-button-margin-between / 2);
+      margin-left: calc($edge-button-margin-between * 1.5);
+    }
+
+    &:active {
+      padding: 0 1.5rem;
+    }
+  }
+}

@@ -1,0 +1,58 @@
+{
+  "extends": "@tsconfig/node20/tsconfig.json",
+  "compilerOptions": {
+    "rootDir": "src",
+    "typeRoots": ["types"],
+    "types": [],
+
+    /* JavaScript Support */
+    "allowJs": false,
+
+    /* Emit */
+    "declaration": true,
+    "declarationMap": true,
+    "emitDeclarationOnly": true,
+    "sourceMap": true,
+    "inlineSourceMap": false,
+    "outDir": "dist",
+    "removeComments": true,
+    /* Allow importing helper functions from tslib once per project, instead of including them per-file. */
+    "importHelpers": true,
+    /* Emit a UTF-8 Byte Order Mark (BOM) in the beginning of output files. May require special options when trying to write code that reads the file. */
+    "emitBOM": false,
+    "newLine": "lf",
+    "stripInternal": true,
+    "noEmitHelpers": true,
+    "noEmitOnError": true,
+    "preserveConstEnums": true,
+    "declarationDir": "dist/@types",
+
+    /* Interop Constraints */
+    "forceConsistentCasingInFileNames": true,
+
+    /* Type Checking */
+    "noImplicitAny": true,
+    "strictNullChecks": true,
+    "strictFunctionTypes": true,
+    "strictBindCallApply": true,
+    "strictPropertyInitialization": true,
+    "noImplicitThis": true,
+    "useUnknownInCatchVariables": true,
+    "alwaysStrict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "exactOptionalPropertyTypes": false,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    /* Add 'undefined' to a type when accessed using an index. */
+    "noUncheckedIndexedAccess": true,
+    "noImplicitOverride": true,
+    /* Enforces using indexed accessors for keys declared using an indexed type. */
+    "noPropertyAccessFromIndexSignature": true,
+    "allowUnusedLabels": false,
+    "allowUnreachableCode": false,
+
+    /* Completeness */
+    "skipDefaultLibCheck": true
+  }
+}

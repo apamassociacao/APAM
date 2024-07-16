@@ -1,0 +1,73 @@
+@use '../../pages/Admin/colors' as color;
+
+$total-area-fractions: 20;
+$flex-area-form-submit: 1;
+$flex-area-form-inputs: calc($total-area-fractions - $flex-area-form-submit);
+
+$total-area-form-inputs: 10;
+$flex-area-side-panel: 2;
+$flex-area-main-inputs: calc($total-area-form-inputs - $flex-area-side-panel);
+
+.admin-input__form-layout {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+
+  row-gap: 1rem;
+
+  .form-inputs {
+    display: flex;
+    flex-direction: row;
+    flex: $flex-area-form-inputs;
+    flex-basis: 100%;
+    column-gap: 1rem;
+
+    .main-inputs {
+      flex: $flex-area-main-inputs;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+
+      .input-group {
+        display: flex;
+        gap: 1rem;
+
+        > * {
+          flex: 1;
+        }
+      }
+    }
+
+    .side-panel {
+      flex: $flex-area-side-panel;
+    }
+  }
+
+  .form-submit {
+    flex: $flex-area-form-submit;
+    display: flex;
+    justify-content: end;
+
+    .button-cancel,
+    .button-submit {
+      padding: 0.5rem;
+      border-radius: 5px;
+      margin-right: 1rem;
+      cursor: pointer;
+      min-width: 150px;
+    }
+
+    .button-cancel {
+      background-color: color.$primary;
+      color: color.$text;
+      border: solid 1px color.$border;
+    }
+
+    .button-submit {
+      background-color: color.$secondary;
+      color: color.$primary;
+      font-weight: bold;
+      border: solid 1px color.$secondary;
+    }
+  }
+}

@@ -1,0 +1,50 @@
+@use '../../../../pages/Admin/colors' as color;
+@use '../../common-options' as common;
+
+$checkbox-size: 0.9rem;
+
+.admin-input {
+  &__clickable-box {
+    margin-left: common.$content-margin-left;
+    height: 1.5rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: left;
+  }
+
+  &__box-input {
+    appearance: none;
+    width: $checkbox-size;
+    height: $checkbox-size;
+    border: 2px solid color.$secondary;
+    box-sizing: border-box;
+  }
+
+  &__box-input[type='checkbox'] {
+    &:checked {
+      background-image: linear-gradient(color.$secondary, color.$secondary);
+      background-size: 0.5rem 0.5rem;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+  }
+
+  &__box-input[type='radio'] {
+    border-radius: 50%;
+
+    &:checked {
+      background-image: radial-gradient(
+        color.$secondary 0.25rem,
+        transparent 0.25rem
+      );
+      background-repeat: no-repeat;
+    }
+  }
+
+  &__box-label {
+    margin-left: 0.5rem;
+    line-height: 1;
+    color: color.$text;
+  }
+}
