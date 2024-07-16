@@ -1,0 +1,17 @@
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5rem;
+  gap: 1rem;
+
+  &__title {
+    display: flex;
+    gap: 1rem;
+    font-size: 1.2rem;
+    color: #ffffff;
+    line-height: auto;
+    font-family: 'Alexandria', sans-serif;
+    font-weight: 600;
+  }
+}
