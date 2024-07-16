@@ -10,14 +10,7 @@ module.exports = {
     'plugin:prettier/recommended',
     'eslint-config-prettier',
   ],
-  ignorePatterns: [
-    'dist',
-    '.eslintrc.cjs',
-    'fileTransformer.js',
-    'jest.config.js',
-    'jest.setup.ts',
-    '*.spec.tsx',
-  ],
+  ignorePatterns: ['dist', '.eslintrc.cjs', 'fileTransformer.js', 'jest.config.js', 'jest.setup.ts', '*.spec.tsx'],
   parser: '@typescript-eslint/parser',
   parserOptions: {
     ecmaVersion: 'latest',
@@ -26,18 +19,9 @@ module.exports = {
     tsconfigRootDir: __dirname,
   },
   settings: { react: { version: '18.2' } },
-  plugins: [
-    'react-refresh',
-    'import',
-    'prettier',
-    '@typescript-eslint',
-    'prettier',
-  ],
+  plugins: ['react-refresh', 'import', 'prettier', '@typescript-eslint', 'prettier'],
   rules: {
-    // 'react-refresh/only-export-components': [
-    //   'warn',
-    //   { allowConstantExport: true },
-    // ],
+    'react-refresh/only-export-components': ['warn', { allowConstantExport: true }],
     'import/newline-after-import': ['error', { count: 1 }],
     'prettier/prettier': 'error',
   },

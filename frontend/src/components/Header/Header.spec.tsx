@@ -38,5 +38,3 @@ describe('<Header />', () => {
     expect(screen.getByText('Login')).toHaveAttribute('href', '/login');
   });
 });
-
-
