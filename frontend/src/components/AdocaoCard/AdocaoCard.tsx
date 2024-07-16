@@ -1,32 +1,22 @@
+import { FC } from 'react';
 import './_adocaoCard.scss';
 
 interface AdocaoCardProps {
   titulo: string;
   idade: string;
-  id?: number;
   imageUrl?: string;
 }
 
-const AdocaoCard = ({ titulo, idade, imageUrl }: AdocaoCardProps) => {
+const AdocaoCard: FC<AdocaoCardProps> = ({ titulo, idade, imageUrl }) => {
   return (
     <div className="adocaocard">
-      <div className="adocaocard__container__img">
-        <img src={imageUrl} alt="" />
-      </div>
-      <div className="adocaocard__container__item">
-        <div className="adocaocard__container__item2">
-          <p className="adocaocard__container__item__title adocaocard__container__item__title2">
-            {' '}
-            {titulo}
-          </p>
-          <p className="adocaocard__container__item__title adocaocard__container__item__title3">
-            {' '}
-            {idade}
-          </p>
+      <img className="adocaocard__animal-photo" src={imageUrl} />
+      <div className="adocaocard__bottom-container">
+        <div className="adocaocard__info-container">
+          <p className="adocaocard__animal-name">{titulo}</p>
+          <p className="adocaocard__animal-age">{idade}</p>
         </div>
-        <span className="adocaocard__container__icon">
-          <img src="/public/images/fa-paw.png" alt="" />
-        </span>
+        <img className="adocaocard__paw-icon" src="/images/fa-paw.png" />
       </div>
     </div>
   );
