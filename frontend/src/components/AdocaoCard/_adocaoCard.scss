@@ -1,7 +1,54 @@
+$animal-photo-square-side: 320px;
+$paw-icon-height: 70px;
+$paw-icon-z-index: 0;
+
 .adocaocard {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
+  border-radius: 1rem;
+  overflow: hidden;
+  background-color: #fdd8b1;
+
+  &__animal-photo {
+    width: $animal-photo-square-side;
+    height: $animal-photo-square-side;
+  }
+
+  &__bottom-container {
+    margin: 2rem;
+    position: relative;
+  }
+
+  &__info-container {
+    height: $paw-icon-height;
+    position: relative;
+    z-index: calc($paw-icon-z-index + 1);
+  }
+
+  &__paw-icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: $paw-icon-height;
+    z-index: $paw-icon-z-index;
+  }
+
+  &__animal-name,
+  &__animal-age {
+    font-size: 2.2rem;
+    color: #e94250;
+    line-height: 1;
+    font-family: 'Alexandria', sans-serif;
+  }
+
+  &__animal-name {
+    font-weight: 600;
+  }
+
+  &__animal-age {
+    font-weight: 500;
+  }
 }
 
 .adocaocard__container {
@@ -10,58 +57,8 @@
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-
   border-radius: 8px;
   overflow: hidden;
-
-  &__img {
-    background-image: url('/public/images/mask-group.png');
-    background-repeat: no-repeat;
-    background-position: inherit;
-    background-size: auto;
-    height: 316px;
-    width: 320px;
-  }
-
-  &__icon {
-    display: flex;
-    align-items: center;
-    position: absolute;
-    left: 200px;
-  }
-
-  &__item {
-    position: relative;
-    background-color: #fdd8b1;
-    width: 335px;
-    display: flex;
-    flex-direction: row;
-    gap: 4rem;
-    padding: 2rem;
-    border-bottom-left-radius: 2rem;
-    border-bottom-right-radius: 2rem;
-
-    &__title {
-      display: flex;
-      font-size: 2.2rem;
-      color: #e94250;
-      line-height: auto;
-      font-family: 'Alexandria', sans-serif;
-      font-weight: 600;
-    }
-
-    &__title2 {
-      margin-left: 1rem;
-    }
-
-    &__title3 {
-      font-weight: 500;
-    }
-  }
-
-  &__item2 {
-    z-index: 1;
-  }
 
   &__cards {
     display: flex;
