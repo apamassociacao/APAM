@@ -4,10 +4,13 @@ $page-button-square-size: 2rem;
 .pagination {
   &__select {
     height: $select-container-height;
+    max-width: calc($page-button-square-size * 10);
+    width: 100%;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     column-gap: 1rem;
+    margin: 0 auto;
     margin-top: 5rem;
 
     > * {
@@ -16,6 +19,16 @@ $page-button-square-size: 2rem;
   }
 
   &__button {
+    width: $page-button-square-size;
+    height: $page-button-square-size;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &:hover {
+      cursor: pointer;
+    }
+
     img:first-of-type {
       display: block;
     }
