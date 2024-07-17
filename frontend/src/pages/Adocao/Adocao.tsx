@@ -25,23 +25,19 @@ const cardsData = Array(10)
   });
 
 const Adocao: FC<unknown> = () => (
-  <main className="adocao">
+  <main className="adocao__page-container">
     <SidebarProvider>
-      <Sidebar />
       <section className="adocao">
-        <div className="adocao__container">
-          <Header />
+        <Sidebar />
+        <Header />
+        <div className="adocao__content-container">
           <AdocaoFilterProvider>
-            <div className="adocao__container__body">
-              <h1 className="adocao__container__body__title">
-                Busque por categoria
-              </h1>
-              <div className="adocao__container__body__title__subtitle">
-                <FilterButton label="Gatos" filterType="cat" />
-                <FilterButton label="Cachorros" filterType="dog" />
-              </div>
-              <Paginacao items={cardsData} itemsPerPage={3} />
+            <h1 className="adocao__title">Busque por categoria</h1>
+            <div className="adocao__filter-select">
+              <FilterButton label="Gatos" filterType="cat" />
+              <FilterButton label="Cachorros" filterType="dog" />
             </div>
+            <Paginacao items={cardsData} itemsPerPage={3} />
           </AdocaoFilterProvider>
         </div>
       </section>

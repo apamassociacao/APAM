@@ -1,59 +1,43 @@
-@import '../../assets/variables';
+@use '../../assets/variables' as *;
+
+$header-top-margin: 6.25rem;
+$text-bottom-margin: 3rem;
+$text-left-margin: 3rem;
+
+.adocao__page-container {
+  background-color: #ff7665;
+  padding-top: $header-top-margin;
+}
 
 .adocao {
-  background-color: #ff7665;
-  height: 5000px;
+  max-width: 1140px;
+  margin: 0 auto;
 
-  &__container {
-    max-width: 1140px;
-    margin: 0 auto;
-    padding-top: 6.25rem;
+  &__title {
+    font-size: 3.45rem;
+    color: #f0be8a;
+    font-family: 'Fraunces', sans-serif;
+    font-weight: 900;
+    text-align: start;
+    padding-left: $text-left-margin;
+    margin-bottom: $text-bottom-margin;
+  }
 
-    &__body {
-      margin-top: 11.063rem;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 4rem;
-      flex-wrap: wrap;
-      align-content: flex-start;
-      align-items: flex-start;
+  &__filter-select {
+    color: #f0be8a;
+    font-size: 2rem;
+    font-family: 'Alexandria', sans-serif;
+    font-weight: 600;
+    margin-bottom: calc($text-bottom-margin * 2);
+    padding-left: $text-left-margin;
 
-      @media screen and (max-width: 1156px) {
-        flex-direction: column;
-      }
-
-      @media screen and ($smartphone-and-tablet-size) {
-        flex-direction: column;
-        margin-top: 3rem;
-      }
-
-      &__title {
-        font-size: 3.45rem;
-        color: #f0be8a;
-        width: 518px;
-        line-height: 150%;
-        font-family: 'Fraunces', sans-serif;
-        font-weight: 900;
-        width: 1000px;
-
-        @media screen and ($smartphone-and-tablet-size) {
-          font-size: 2.75rem;
-          width: 342px;
-          text-align: center;
-        }
-
-        &__subtitle {
-          color: #f0be8a;
-          font-size: 1.88rem;
-          width: 27.125rem;
-          line-height: 150%;
-          font-family: 'Alexandria', sans-serif;
-          font-weight: 600;
-          display: flex;
-          gap: 2rem;
-        }
-      }
+    .filter-button:not(:last-child) {
+      margin-right: $text-left-margin;
     }
+  }
+
+  &__content-container {
+    margin: 0 auto;
+    padding-top: $header-top-margin;
   }
 }
