@@ -4,9 +4,8 @@ import './_paginacao.scss';
 import { FilterOption, useAdocaoFilter } from '@/hooks/AdocaoFilterProvider';
 
 interface CardProps {
-  id: number;
   titulo: string;
-  idade: string;
+  idade: number;
   imageUrl: string;
   tipo: string;
 }
@@ -47,7 +46,7 @@ const Paginacao: FC<PaginacaoProps> = ({ itemsPerPage, items }) => {
       <div className="pagination__cards">
         {currentItems.map((item) => (
           <AdocaoCard
-            key={item.id}
+            key={crypto.randomUUID()}
             titulo={item.titulo}
             idade={item.idade}
             imageUrl={item.imageUrl}

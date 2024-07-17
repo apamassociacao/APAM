@@ -1,7 +1,5 @@
 import { SidebarProvider } from '@/hooks/SidebarProvider.tsx';
 import Sidebar from '@/components/Sidebar/Sidebar.tsx';
-import gato from '../../../public/images/gato.png';
-import cachorro from '../../../public/images/cachorro.png';
 import Header from '@/components/Header/Header';
 import Paginacao from '@/components/Paginacao/Paginacao';
 import FilterButton from '@/components/FilterButton/FilterButton';
@@ -12,57 +10,19 @@ import {
 } from '@/hooks/AdocaoFilterProvider';
 import './_adocao.scss';
 
-const cardsData = [
-  {
-    id: 1,
-    titulo: 'Gatin',
-    idade: '1 ano',
-    imageUrl: gato,
-    tipo: FilterOption.cat,
-  },
-  {
-    id: 2,
-    titulo: 'Cachorrin',
-    idade: '2 anos',
-    imageUrl: cachorro,
-    tipo: FilterOption.dog,
-  },
-  {
-    id: 3,
-    titulo: 'Gatin',
-    idade: '1 ano',
-    imageUrl: gato,
-    tipo: FilterOption.cat,
-  },
-  {
-    id: 4,
-    titulo: 'Gatin',
-    idade: '1 ano',
-    imageUrl: gato,
-    tipo: FilterOption.cat,
-  },
-  {
-    id: 5,
-    titulo: 'Gatin',
-    idade: '1 ano',
-    imageUrl: gato,
-    tipo: FilterOption.cat,
-  },
-  {
-    id: 6,
-    titulo: 'Gatin',
-    idade: '1 ano',
-    imageUrl: gato,
-    tipo: FilterOption.cat,
-  },
-  {
-    id: 8,
-    titulo: 'Gatin',
-    idade: '1 ano',
-    imageUrl: gato,
-    tipo: FilterOption.cat,
-  },
-];
+const cardsData = Array(10)
+  .fill(null)
+  .map((_, i, arr) => {
+    const isCat = i + 1 <= Math.ceil(arr.length / 2);
+    const maxAge = 5;
+
+    return {
+      titulo: isCat ? 'Gatin' : 'Cachorrin',
+      idade: Math.floor(Math.random() * maxAge),
+      imageUrl: isCat ? '/images/gato.png' : '/images/cachorro.png',
+      tipo: isCat ? FilterOption.cat : FilterOption.dog,
+    };
+  });
 
 const Adocao: FC<unknown> = () => (
   <main className="adocao">
