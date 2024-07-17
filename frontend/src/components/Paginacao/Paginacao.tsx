@@ -1,7 +1,5 @@
 import { FC, useState } from 'react';
 import AdocaoCard from '../AdocaoCard/AdocaoCard';
-import esquerda from '../../../public/images/esquerda.png';
-import direita from '../../../public/images/direita.png';
 import './_paginacao.scss';
 import { FilterOption, useAdocaoFilter } from '@/hooks/AdocaoFilterProvider';
 
@@ -45,8 +43,8 @@ const Paginacao: FC<PaginacaoProps> = ({ itemsPerPage, items }) => {
   };
 
   return (
-    <div>
-      <div className="adocaocard__container__cards">
+    <div className="pagination">
+      <div className="pagination__cards">
         {currentItems.map((item) => (
           <AdocaoCard
             key={item.id}
@@ -56,17 +54,21 @@ const Paginacao: FC<PaginacaoProps> = ({ itemsPerPage, items }) => {
           />
         ))}
       </div>
-      <div className="pagination">
-        <span className="pagination__esquerda" onClick={handlePrevPage}>
-          <img src={esquerda} alt="" />
+      <div className="pagination__select">
+        <span
+          className="pagination__back pagination__button"
+          onClick={handlePrevPage}
+        >
+          <img src="/images/esquerda.png" />
         </span>
-
-        <span className="pagination__title">
+        <span className="pagination__counter">
           {currentPage}...{totalPages}
         </span>
-
-        <span className="pagination__direita" onClick={handleNextPage}>
-          <img src={direita} alt="" />
+        <span
+          className="pagination__forward pagination__button"
+          onClick={handleNextPage}
+        >
+          <img src="/images/direita.png" />
         </span>
       </div>
     </div>
