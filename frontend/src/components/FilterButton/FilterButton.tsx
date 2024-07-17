@@ -1,16 +1,20 @@
-import { FC, HTMLAttributes } from 'react';
+import { FC } from 'react';
+import { useAdocaoFilter } from '@/hooks/AdocaoFilterProvider';
+import type { UserFilter } from '@/hooks/AdocaoFilterProvider';
 import './_filterButton.scss';
 
-interface FilterProps extends HTMLAttributes<HTMLElement> {
+interface FilterProps {
   label: string;
-  isActive: boolean;
+  filterType: UserFilter;
 }
 
-const FilterButton: FC<FilterProps> = ({ onClick, label, isActive }) => {
+const FilterButton: FC<FilterProps> = ({ label, filterType }) => {
+  const { filter, setFilter } = useAdocaoFilter();
+
   return (
     <span
-      onClick={onClick}
-      className={`filter-button ${isActive ? 'active' : ''}`}
+      onClick={() => setFilter(filterType)}
+      className={`filter-button ${filter === filterType ? 'active' : ''}`}
     >
       {label}
     </span>
