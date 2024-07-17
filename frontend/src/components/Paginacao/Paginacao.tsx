@@ -49,7 +49,7 @@ const Paginacao: FC<PaginacaoProps> = ({ itemsPerPage, items }) => {
   const PageButton: FC<{ index?: number }> = ({ index }) => {
     return (
       <span
-        className="pagination__page-button"
+        className={`pagination__page-button ${currentPage === index ? 'active' : ''}`}
         onClick={() => index && setCurrentPage(index)}
       >
         {index}
@@ -57,22 +57,23 @@ const Paginacao: FC<PaginacaoProps> = ({ itemsPerPage, items }) => {
     );
   };
 
+  const shouldDisplayLast = totalPages > maxPreviewedButtons;
+
   const buttons = Array(maxPreviewedButtons)
     .fill(undefined)
     .map((_, i) => {
       if (i + 1 > totalPages) return;
       let index = i + 1;
-      if (currentPage > maxPreviewedButtons)
+      if (currentPage + maxPreviewedButtons >= totalPages)
+        index = totalPages - maxPreviewedButtons + i;
+      else if (currentPage > maxPreviewedButtons)
         index = currentPage - (maxPreviewedButtons - index);
       return <PageButton key={crypto.randomUUID()} index={index} />;
     });
 
   let ellipsis;
-  if (totalPages > maxPreviewedButtons + 1 && currentPage < totalPages - 1)
+  if (shouldDisplayLast && currentPage < totalPages - maxPreviewedButtons)
     ellipsis = <span className="pagination__page-ellipsis">&hellip;</span>;
-
-  const shouldDisplayLast =
-    totalPages > maxPreviewedButtons && currentPage < totalPages;
 
   return (
     <div className="pagination">
@@ -96,7 +97,7 @@ const Paginacao: FC<PaginacaoProps> = ({ itemsPerPage, items }) => {
         <span className="pagination__counter">
           {buttons}
           {ellipsis}
-          <PageButton index={shouldDisplayLast ? totalPages : undefined} />
+          {shouldDisplayLast && <PageButton index={totalPages} />}
         </span>
         <span
           className="pagination__forward pagination__button"
