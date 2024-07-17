@@ -1,4 +1,5 @@
 $select-container-height: 50px;
+$page-button-square-size: 2rem;
 
 .pagination {
   &__select {
@@ -32,5 +33,36 @@ $select-container-height: 50px;
     display: flex;
     flex-wrap: wrap;
     gap: 50px;
+  }
+
+  &__page-button,
+  &__page-ellipsis {
+    width: $page-button-square-size;
+    height: $page-button-square-size;
+    line-height: $page-button-square-size;
+    text-align: center;
+    display: inline-block;
+    font-family: 'Fraunces', sans-serif;
+    font-weight: 900;
+  }
+
+  &__page-button {
+    &.active {
+      background-color: #fdd8b1;
+      border-radius: 50%;
+      color: #e94250;
+    }
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    &:not(:last-child) {
+      margin-right: 0.5rem;
+    }
+  }
+
+  &__page-ellipsis {
+    user-select: none;
   }
 }
