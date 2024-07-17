@@ -3,6 +3,7 @@ import AdocaoCard from '../AdocaoCard/AdocaoCard';
 import esquerda from '../../../public/images/esquerda.png';
 import direita from '../../../public/images/direita.png';
 import './_paginacao.scss';
+import { FilterOption, useAdocaoFilter } from '@/hooks/AdocaoFilterProvider';
 
 interface CardProps {
   id: number;
@@ -19,12 +20,17 @@ interface PaginacaoProps {
 
 const Paginacao: FC<PaginacaoProps> = ({ itemsPerPage, items }) => {
   const [currentPage, setCurrentPage] = useState(1);
+  const { filter } = useAdocaoFilter();
 
   const totalPages = Math.ceil(items.length / itemsPerPage);
 
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
-  const currentItems = items.slice(indexOfFirstItem, indexOfLastItem);
+  const currentItems = items
+    .filter((item) =>
+      filter !== FilterOption.all ? item.tipo === filter : item
+    )
+    .slice(indexOfFirstItem, indexOfLastItem);
 
   const handleNextPage = () => {
     if (currentPage < totalPages) {
