@@ -20,6 +20,7 @@ const Paginacao: FC<PaginacaoProps> = ({ itemsPerPage, items }) => {
   const { filter } = useAdocaoFilter();
 
   const totalPages = Math.ceil(items.length / itemsPerPage);
+  const maxPreviewedButtons = 3;
 
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
@@ -32,14 +33,46 @@ const Paginacao: FC<PaginacaoProps> = ({ itemsPerPage, items }) => {
   const handleNextPage = () => {
     if (currentPage < totalPages) {
       setCurrentPage(currentPage + 1);
+      return;
     }
+    setCurrentPage(1);
   };
 
   const handlePrevPage = () => {
-    if (currentPage > 1) {
-      setCurrentPage(currentPage - 1);
+    if (currentPage === 1) {
+      setCurrentPage(totalPages);
+      return;
     }
+    setCurrentPage(currentPage - 1);
   };
+
+  const PageButton: FC<{ index?: number }> = ({ index }) => {
+    return (
+      <span
+        className="pagination__page-button"
+        onClick={() => index && setCurrentPage(index)}
+      >
+        {index}
+      </span>
+    );
+  };
+
+  const buttons = Array(maxPreviewedButtons)
+    .fill(undefined)
+    .map((_, i) => {
+      if (i + 1 > totalPages) return;
+      let index = i + 1;
+      if (currentPage > maxPreviewedButtons)
+        index = currentPage - (maxPreviewedButtons - index);
+      return <PageButton key={crypto.randomUUID()} index={index} />;
+    });
+
+  let ellipsis;
+  if (totalPages > maxPreviewedButtons + 1 && currentPage < totalPages - 1)
+    ellipsis = <span className="pagination__page-ellipsis">&hellip;</span>;
+
+  const shouldDisplayLast =
+    totalPages > maxPreviewedButtons && currentPage < totalPages;
 
   return (
     <div className="pagination">
@@ -61,7 +94,9 @@ const Paginacao: FC<PaginacaoProps> = ({ itemsPerPage, items }) => {
           <img src="/images/esquerda.png" />
         </span>
         <span className="pagination__counter">
-          {currentPage}...{totalPages}
+          {buttons}
+          {ellipsis}
+          <PageButton index={shouldDisplayLast ? totalPages : undefined} />
         </span>
         <span
           className="pagination__forward pagination__button"
