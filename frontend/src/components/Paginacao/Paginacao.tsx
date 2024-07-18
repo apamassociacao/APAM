@@ -1,4 +1,4 @@
-import { FC, useState } from 'react';
+import { FC, ReactElement, useState } from 'react';
 import AdocaoCard from '../AdocaoCard/AdocaoCard';
 import './_paginacao.scss';
 import { FilterOption, useAdocaoFilter } from '@/hooks/AdocaoFilterProvider';
@@ -15,12 +15,20 @@ interface PaginacaoProps {
   items: CardProps[];
 }
 
+interface PageButtonProps {
+  index: number;
+}
+
 const Paginacao: FC<PaginacaoProps> = ({ itemsPerPage, items }) => {
   const [currentPage, setCurrentPage] = useState(1);
   const { filter } = useAdocaoFilter();
 
-  const totalPages = Math.ceil(items.length / itemsPerPage);
-  const maxPreviewedButtons = 3;
+  const totalPages = Math.ceil(items.length / itemsPerPage),
+    maxPreviewedButtons = 3,
+    shouldDisplayLast = totalPages > maxPreviewedButtons,
+    inEllipsisRange = totalPages > maxPreviewedButtons + 1,
+    ellipsisUpperBound = totalPages - 1,
+    ellipsisLowerBound = totalPages - maxPreviewedButtons;
 
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
@@ -46,7 +54,7 @@ const Paginacao: FC<PaginacaoProps> = ({ itemsPerPage, items }) => {
     setCurrentPage(currentPage - 1);
   };
 
-  const PageButton: FC<{ index?: number }> = ({ index }) => {
+  const PageButton: FC<PageButtonProps> = ({ index }) => {
     return (
       <span
         className={`pagination__page-button ${currentPage === index ? 'active' : ''}`}
@@ -57,9 +65,12 @@ const Paginacao: FC<PaginacaoProps> = ({ itemsPerPage, items }) => {
     );
   };
 
-  const shouldDisplayLast = totalPages > maxPreviewedButtons;
+  type PageSelectButtons = (
+    | ReactElement<PageButtonProps, typeof PageButton>
+    | undefined
+  )[];
 
-  const buttons = Array(maxPreviewedButtons)
+  const buttons: PageSelectButtons = Array(maxPreviewedButtons)
     .fill(undefined)
     .map((_, i) => {
       if (i + 1 > totalPages) return;
@@ -72,7 +83,12 @@ const Paginacao: FC<PaginacaoProps> = ({ itemsPerPage, items }) => {
     });
 
   let ellipsis;
-  if (shouldDisplayLast && currentPage < totalPages - maxPreviewedButtons)
+  if (
+    shouldDisplayLast &&
+    inEllipsisRange &&
+    buttons[0]!.props.index <= ellipsisLowerBound &&
+    buttons[buttons.length - 1]!.props.index < ellipsisUpperBound
+  )
     ellipsis = <span className="pagination__page-ellipsis">&hellip;</span>;
 
   return (
