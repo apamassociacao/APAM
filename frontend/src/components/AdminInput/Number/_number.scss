@@ -1,0 +1,23 @@
+@use '../Shared/TextBox/options' as text-box;
+
+.admin-input {
+  &__number,
+  &__phone {
+    .number-input {
+      font-weight: bold;
+    }
+  }
+
+  &__number {
+    .value-container {
+      display: flex;
+      flex-direction: row;
+    }
+
+    .value-type-label {
+      padding: text-box.$input-overall-padding;
+      font-weight: 500;
+      letter-spacing: 1px;
+    }
+  }
+}

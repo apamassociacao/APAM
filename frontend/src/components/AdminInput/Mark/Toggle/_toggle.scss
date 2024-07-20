@@ -1,0 +1,58 @@
+@use '../../../../pages/Admin/colors' as color;
+@use '../../common-options' as common;
+
+$button-height: 1.2rem;
+$button-width: 2.5rem;
+$circle-diameter: calc($button-height * 0.6);
+$enabled-circle-position: calc($button-width - $circle-diameter * 1.5);
+$disabled-circle-position: $circle-diameter * 0.2;
+
+.admin-input__toggle {
+  height: 3rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: left;
+  padding-left: common.$content-margin-left;
+}
+
+.admin-input__toggle-label {
+  color: color.$text;
+  margin-left: 0.5rem;
+}
+
+.admin-input__toggle-button {
+  box-sizing: border-box;
+  width: $button-width;
+  height: $button-height;
+  border-radius: calc($button-height / 2);
+  border: 2px solid color.$secondary;
+  background-color: transparent;
+  position: relative;
+  transition: background-color 200ms linear;
+  cursor: pointer;
+
+  &::before {
+    content: '';
+    background-color: color.$secondary;
+    transition:
+      left 400ms ease,
+      background-color 200ms linear;
+    height: $circle-diameter;
+    width: $circle-diameter;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: $disabled-circle-position;
+  }
+
+  &.active {
+    background-color: color.$secondary;
+
+    &::before {
+      left: $enabled-circle-position;
+      background-color: color.$primary;
+    }
+  }
+}

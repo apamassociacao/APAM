@@ -1,0 +1,19 @@
+$base-margin: 2rem;
+$min-margin: 5px;
+
+// Rounded from size on UI reference (1466px). Better than a percentage value
+// if we're gonna assume a monitor bigger than 1080p may be used.
+$max-banner-width: 1440px;
+
+$banner-top-margin: 1rem;
+
+// Negative value to negate the working-area's top margin without having
+// to make it position absolute and add in the current top margin value to
+// the calculation. Making it position absolute would also add complexity
+// to width calculations.
+// (* -1 inverts the signal: positive to negative and vise versa)
+$banner-offset-bottom: calc((var(--top-margin) - #{$banner-top-margin}) * -1);
+
+$edge-button-letter-spacing: 0.3px;
+$edge-button-margin-between: 1rem;
+$edge-button-height: 2rem;

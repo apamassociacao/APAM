@@ -1,0 +1,107 @@
+@use 'sass:math';
+@use '../../../pages/Admin/_colors.scss' as color;
+@use '../common-options' as common;
+
+$preview-size: 150px;
+$file-button-height: 2rem;
+
+.admin-input {
+  &__image,
+  &__file {
+    .preview-container,
+    .choose-button {
+      position: relative;
+
+      & > * {
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+    }
+
+    .image-message,
+    .choose-button-text {
+      text-align: center;
+      z-index: math.$max-safe-integer;
+
+      &:hover {
+        cursor: pointer;
+        font-weight: bold;
+      }
+    }
+  }
+
+  &__image {
+    .preview-container {
+      margin-left: common.$content-margin-left;
+      background-color: color.$light-emphasis;
+      border-radius: 10px;
+      overflow: hidden;
+
+      &,
+      & > * {
+        width: $preview-size;
+        height: $preview-size;
+      }
+    }
+
+    .image-message {
+      line-height: $preview-size;
+
+      &.hidden:not(:hover) {
+        // Prevents setting these properties twice, same result
+        user-select: none;
+        color: transparent;
+      }
+
+      &.hidden:hover {
+        background-color: rgba(0, 0, 0, 0.3);
+        color: color.$primary;
+      }
+    }
+
+    .image-preview {
+      border: 0;
+    }
+  }
+
+  &__file {
+    .choose {
+      display: flex;
+      flex-direction: row;
+
+      & > * {
+        margin-left: common.$content-margin-left;
+      }
+    }
+
+    .choose-button {
+      box-sizing: content-box;
+      border: 2px solid color.$secondary;
+      border-radius: 5px;
+
+      &,
+      & > * {
+        height: $file-button-height;
+        width: 9rem;
+        font-size: 0.9rem;
+      }
+    }
+
+    .choose-button-text {
+      line-height: $file-button-height;
+    }
+
+    .filename-label {
+      box-sizing: content-box;
+      // height: $file-button-height;
+      text-overflow: ellipsis;
+      display: inline-block;
+      min-width: 25rem;
+      border: 1px solid color.$border;
+      border-radius: 5px;
+      padding: 0.5rem;
+      color: color.$text;
+    }
+  }
+}
