@@ -3,6 +3,7 @@ import Sidebar from '@/components/Sidebar/Sidebar.tsx';
 import AboutUs from '@/components/AboutUs/AboutUs.tsx';
 import { SidebarProvider } from '@/hooks/SidebarProvider.tsx';
 import Campaign from '@/components/Campaign/Campaign';
+import Transparency from '@/components/Transparency/Transparency';
 
 const Home = () => {
   return (
@@ -12,6 +13,7 @@ const Home = () => {
         <HelpUs />
         <AboutUs />
         <Campaign />
+        <Transparency />
       </SidebarProvider>
     </main>
   );
