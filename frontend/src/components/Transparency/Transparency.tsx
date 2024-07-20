@@ -1,9 +1,9 @@
-import iconReceita from '../../../public/images/iconReceitaTransparencia.svg';
-import iconDespesa from '../../../public/images/iconDespesaTransparencia.svg';
-import iconAvailable from '../../../public/images/carbon_dog-walker.svg';
-import iconSucess from '../../../public/images/bi_house-heart.svg';
-import iconRescued from '../../../public/images/material-symbols_heart-plus-outline.svg';
-import iconTreatment from '../../../public/images/pajamas_status-health.svg';
+import iconReceita from '/images/iconReceitaTransparencia.svg';
+import iconDespesa from '/images/iconDespesaTransparencia.svg';
+import iconAvailable from '/images/carbon_dog-walker.svg';
+import iconSucess from '/images/bi_house-heart.svg';
+import iconRescued from '/images/material-symbols_heart-plus-outline.svg';
+import iconTreatment from '/images/pajamas_status-health.svg';
 
 import './_transparency.scss';
 

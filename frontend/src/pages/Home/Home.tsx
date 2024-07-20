@@ -8,7 +8,7 @@ import Transparency from '@/components/Transparency/Transparency';
 import Footer from '@/components/Footer/Footer';
 
 import './_home.scss';
-import iconArrowTop from '../../../public/images/ep_arrow-up-bold.svg';
+import iconArrowTop from '/images/ep_arrow-up-bold.svg';
 
 const Home = () => {
   const [showButton, setShowButton] = useState<boolean>();
