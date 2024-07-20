@@ -1,0 +1,231 @@
+@import '../../assets/variables';
+@import '../../assets/fontes.scss';
+
+.campaign {
+  background-color: #F2DFD7;
+  padding-top: 100px;
+  padding-bottom: 170px;
+
+  &__container {
+    max-width: 1140px;
+    margin: 0 auto;
+
+    h2 {
+      font-size: 4rem;
+      font-family: "Fraunces", serif;
+      text-align: center;
+
+      color: #ED3E54;
+
+      margin-bottom: 82px;
+
+    }
+
+    @media screen and ($smartphone-and-tablet-size){
+      h2 {
+        font-size: 2rem;
+      }
+    }
+
+    &__menu {
+      color: #FF7665;
+      font-family: "Alexandria", sans-serif;
+
+      h3 {
+        font-size: 3.5rem;
+        margin-bottom: 39px;
+      }
+
+      &-btn {
+        display: flex;
+        gap: 30px;
+
+        span {
+          font-size: 1.5rem;
+          font-weight: bold;
+
+          margin-bottom: 8rem;
+
+          cursor: pointer;
+        }
+      }
+
+      @media screen and ($smartphone-and-tablet-size){
+        padding: 0 1.25rem;
+        h3 {
+          font-size: 1.25rem;
+        }
+
+        &-btn {
+          gap: 20px;
+
+          span {
+            font-size: 1rem;
+            margin-bottom: 3.8rem;
+          }
+        }
+      }
+    }
+
+    &__body {
+      display: flex;
+      font-family: "Alexandria", sans-serif;
+
+      @media screen and ($smartphone-and-tablet-size){
+        max-width: 80%;
+        margin: 0 auto;
+      }
+
+      &__left {
+        background-color: #ED3E54;
+
+        padding: 3.9rem 1.2rem;
+        border-top-left-radius: 10px;
+        border-bottom-left-radius: 10px;
+
+        @media screen and ($smartphone-and-tablet-size) {
+          padding: 2.6rem 0.5rem;
+
+          img {
+            width: 30px;
+          }
+        }
+      }
+
+      &__right {
+        display: flex;
+        flex-direction: column;
+
+        background-color: rgba($color: #EFCDBE, $alpha: 0.5);
+
+        padding: 4.3rem 3.8rem;
+        border-top-right-radius: 10px;
+        border-bottom-right-radius: 10px;
+
+        @media screen and ($smartphone-and-tablet-size) {
+          padding: 1.8rem 1.25rem;
+        }
+
+        &-header {
+          display: flex;
+          justify-content: space-between;
+
+          color: #ED3E54;
+
+          margin-bottom: 3.8rem;
+
+          h3, h4, span {
+            font-weight: bold;
+          }
+
+          h3 {
+            font-size: 3.2rem;
+          }
+
+          h4 {
+            font-size: 2.3rem;
+          }
+
+          p, span {
+            font-size: 1.5rem;
+          }
+
+          @media screen and ($smartphone-and-tablet-size) {
+            flex-direction: column;
+            margin-bottom: 1.5rem;
+
+            h3 {
+              font-size: 2rem;
+            }
+
+            h4 {
+              font-size: 1.25rem;
+              margin-bottom: 0.75rem;
+            }
+
+            p, span {
+              font-size: 0.75rem;
+            }
+          }
+        }
+
+        &-content {
+          margin-bottom: 2rem;
+
+          p {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+          }
+
+          @media screen and ($smartphone-and-tablet-size) {
+            display: flex;
+            flex-direction: column;
+
+            p {
+              font-size: 0.8rem;
+            }
+          }
+        }
+
+        &-footer {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+
+          div {
+            display: flex;
+            flex-direction: column;
+
+            padding: 2rem 3.6rem;
+            width: 90%;
+
+            background-color: rgba($color: #EFCDBE, $alpha: 0.7);
+
+            border-radius: 15px;
+
+            h4, span {
+              color: #ED3E54;
+              font-weight: bold;
+            }
+
+            h4 {
+              font-size: 1.5rem;
+            }
+
+            span {
+              font-size: 2.5rem;
+              padding: 13px 0 27px 0;
+            }
+
+            a {
+              font-size: 1.25rem;
+              color: #FF7665;
+
+              cursor: pointer;
+            }
+          }
+
+          @media screen and ($smartphone-and-tablet-size) {
+            display: flex;
+            flex-direction: column;
+            gap: 1.25rem;
+
+            div {
+              padding: 1.8rem 2rem;
+              width: 100%;
+
+              h4, a {
+                font-size: 1rem;
+                font-weight: bold;
+              }
+
+              span {
+                font-size: 1.5rem;
+                padding: 15px 0;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
