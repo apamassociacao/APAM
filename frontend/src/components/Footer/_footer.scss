@@ -1,0 +1,75 @@
+@import '../../assets/variables';
+
+.footer {
+  background-color: #f47b6a;
+
+  &__container {
+    max-width: 1140px;
+    margin: 0 auto;
+    height: 80vh;
+    padding-top: 95px;
+    position: relative;
+
+    overflow: hidden;
+
+    &__header {
+      padding-bottom: 70px;
+
+      h2 {
+        font-size: 4rem;
+        font-weight: bold;
+        font-family: "Fraunces", serif;
+        text-align: center;
+
+        color: #FFCA94;
+      }
+    }
+
+    @media screen and ($smartphone-and-tablet-size) {
+      margin: 0px 20px;
+
+      &__header {
+        h2 {
+          font-size: 2rem;
+        }
+      }
+    }
+
+    &__body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 60px;
+
+      position: absolute;
+      left: 0;
+
+      animation: slide 10s linear infinite;
+
+      &:hover {
+        animation-play-state: paused;
+      }
+
+      @keyframes slide {
+        0% {
+          left: 0;
+        }
+        100% {
+          left: -109%;
+        }
+      }
+
+      @media screen and ($smartphone-and-tablet-size) {
+        animation: slide 20s linear infinite;
+        @keyframes slide {
+          0% {
+            left: 0;
+          }
+          100% {
+            left: -405%;
+          }
+        }
+      }
+    }
+  }
+}
