@@ -1,6 +1,6 @@
 import './_aboutUs.scss';
-import IconInsta from '../../../public/images/bi_instagram.svg';
-import IconEmail from '../../../public/images/uil_copy.svg';
+import IconInsta from '/images/bi_instagram.svg';
+import IconEmail from '/images/uil_copy.svg';
 import Card from '../Card/Card';
 
 const AboutUs: React.FC = () => (

@@ -1,4 +1,4 @@
-import IconCalendar from '../../../public/images/calendarIcon.svg';
+import IconCalendar from '/images/calendarIcon.svg';
 import './_campaign.scss';
 
 const Campaign: React.FC = () => {
