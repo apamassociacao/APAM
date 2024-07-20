@@ -1,0 +1,195 @@
+@import '../../assets/variables';
+
+.transparency {
+  background-color: #1f5b5c;
+
+  &__container {
+    max-width: 1140px;
+    margin: 0 auto;
+    padding-top: 95px;
+    padding-bottom: 145px;
+
+    @media screen and ($smartphone-and-tablet-size) {
+      padding-top: 75px;
+      padding-bottom: 170px;
+      max-width: 80%;
+    }
+
+    &__header {
+      h2 {
+        font-size: 4rem;
+        font-weight: bold;
+        font-family: 'Fraunces', serif;
+        text-align: center;
+
+        color: white;
+      }
+
+      @media screen and ($smartphone-and-tablet-size) {
+        h2 {
+          font-size: 2rem;
+        }
+      }
+    }
+
+    &__body {
+      font-family: 'Alexandria', sans-serif;
+      font-weight: bold;
+
+      color: white;
+
+      .container__image {
+        background-color: #d3d3d3;
+        padding: 1.2rem 1.3rem;
+        border-radius: 50%;
+
+        img {
+          width: 3rem;
+          height: 3rem;
+        }
+
+        @media screen and ($smartphone-and-tablet-size) {
+          padding: 1rem 1.1rem;
+          img {
+            width: 2.25rem;
+            height: 2.25rem;
+          }
+        }
+      }
+
+      .receitas {
+        background-color: #93a683;
+      }
+
+      .despesas {
+        background-color: #ff7665;
+      }
+
+      .resgate {
+        background-color: #ed3e54;
+      }
+
+      .tratamento {
+        background-color: #3697b2;
+      }
+
+      .sucesso {
+        background-color: #93a683;
+      }
+
+      .adocao {
+        background-color: #f0be8a;
+      }
+
+      .cards {
+        background-color: #2f7475;
+        border-radius: 86px;
+
+        @media screen and ($smartphone-and-tablet-size) {
+          border-radius: 30px;
+        }
+      }
+
+      &-top {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 52px;
+
+        margin-top: 115px;
+        margin-bottom: 62px;
+
+        &-card {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 37px;
+
+          padding: 60px;
+
+          &--text {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+          }
+
+          h4 {
+            font-size: 1.5rem;
+          }
+
+          span {
+            font-size: 3rem;
+            font-family: 'Fraunces', serif;
+          }
+
+          a {
+            font-size: 1.5rem;
+            color: #f0be8a;
+            cursor: pointer;
+          }
+        }
+
+        @media screen and ($smartphone-and-tablet-size) {
+          grid-template-columns: 1fr;
+
+          &-card {
+            gap: 25px;
+
+            padding: 50px 38px;
+
+            h4,
+            a {
+              font-size: 1rem;
+            }
+
+            span {
+              font-size: 1.5rem;
+            }
+          }
+        }
+      }
+
+      &-bottom {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        gap: 52px;
+
+        text-align: center;
+
+        &-card {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 20px;
+
+          padding: 63px 26px;
+
+          span {
+            font-size: 3.75rem;
+            font-family: 'Fraunces', serif;
+          }
+
+          p {
+            font-size: 1.5rem;
+          }
+        }
+
+        @media screen and ($smartphone-and-tablet-size) {
+          grid-template-columns: 1fr 1fr;
+          grid-template-rows: 1fr 1fr;
+          gap: 28px;
+
+          &-card {
+            padding: 45px 20px;
+            span {
+              font-size: 2.5rem;
+            }
+
+            p {
+              font-size: 1rem;
+            }
+          }
+        }
+      }
+    }
+  }
+}
