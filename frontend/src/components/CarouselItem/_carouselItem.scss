@@ -1,0 +1,26 @@
+@import '../../assets/variables';
+
+.carousel__card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  transition: all 0.2s ease-in;
+
+  &:hover {
+    transform: scale(0.9);
+    transition: transform 0.2s ease-out;
+  }
+
+  img {
+    height: 100%;
+    width: 250px;
+  }
+
+  @media screen and ($smartphone-and-tablet-size) {
+    img {
+      width: 150px;
+    }
+  }
+}
