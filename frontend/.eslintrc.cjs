@@ -10,7 +10,7 @@ module.exports = {
     'plugin:prettier/recommended',
     'eslint-config-prettier',
   ],
-  ignorePatterns: ['dist', '.eslintrc.cjs', 'fileTransformer.js', 'jest.config.js', 'jest.setup.ts', '*.spec.tsx'],
+  ignorePatterns: ['dist', '.eslintrc.cjs', 'fileTransformer.js', 'vitest.config.ts', 'vitest.setup.ts', '*.spec.tsx'],
   parser: '@typescript-eslint/parser',
   parserOptions: {
     ecmaVersion: 'latest',

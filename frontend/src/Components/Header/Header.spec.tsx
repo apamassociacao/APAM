@@ -1,8 +1,14 @@
-import { render, screen } from '@testing-library/react';
+import { cleanup, render, screen } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
+import { afterEach, describe, expect, test } from 'vitest';
 import Header from './Header';
 
 describe('<Header />', () => {
+
+  afterEach(() => {
+    cleanup();
+  });
+
   test('should render correctly', () => {
     render(
       <MemoryRouter>

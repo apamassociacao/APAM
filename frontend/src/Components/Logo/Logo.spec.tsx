@@ -1,7 +1,13 @@
-import { render } from '@testing-library/react';
 import Logo from '@/Components/Logo/Logo.tsx';
+import { cleanup, render } from '@testing-library/react';
+import { afterEach, describe, expect, test } from 'vitest';
 
 describe('<Logo />', () => {
+
+  afterEach(() => {
+    cleanup();
+  });
+
   test('Should render with correct props', () => {
     const mockedSrc = 'any/path/to/logo.png';
     const altText = 'APAM - Associação Mato-grossense Protetora dos Animais';
